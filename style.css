@@ -1,0 +1,140 @@
+body {
+  background-color: rgba(223, 215, 144, 0.37);
+  text-transform: capitalize;
+  font-family: Arial, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+header {
+  margin: 0 auto;
+  padding: 20px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1100px;
+  min-width: 300px;
+}
+
+header .logo img {
+  width: 300px;
+}
+
+header nav ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+header nav ul li {
+  position: relative;
+  height: fit-content;
+}
+
+header nav ul li::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background-color: #000000;
+  bottom: -10px;
+  transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  visibility: hidden;
+}
+
+header nav ul li:hover::before {
+  visibility: visible;
+  width: 100%;
+  background-color: #00000080;
+}
+
+header nav ul li a {
+  text-decoration: none;
+  color: #000000;
+  font-size: 18px;
+  transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+}
+
+header nav ul li a:hover {
+  color: #00000080;
+}
+
+header nav .nav__tag {
+  display: none;
+}
+
+@media screen and (max-width: 833px) {
+  header {
+    padding: 5px 20px;
+  }
+  header nav ul {
+    flex-direction: column;
+    background-color: rgb(223, 215, 144);
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 230px;
+    height: 100vh;
+    padding: 120px 20px;
+    gap: 50px;
+    display: none;
+    z-index: 2;
+  }
+
+  header nav ul li a {
+    font-size: 23px;
+  }
+
+  header nav .nav__tag {
+    display: block;
+  }
+
+  header nav .nav__tag i {
+    position: relative;
+    font-size: 30px;
+    margin-right: 10px;
+    z-index: 3;
+  }
+
+  header nav .nav__tag i:last-child {
+    display: none;
+  }
+}
+
+body .main__container {
+  width: clamp(300px, 1120px, 1120px);
+  margin: 0 auto;
+}
+
+body .main__container .challenge__var {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+body .main__container .mark__up {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+body .main__container .mark__up .title__var {
+  font-size: 36px;
+  color: rgb(78, 134, 134);
+}
