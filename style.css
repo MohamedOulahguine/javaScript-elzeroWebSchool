@@ -139,3 +139,22 @@ body .main__container .mark__up .title__var {
   font-size: 36px;
   color: rgb(78, 134, 134);
 }
+
+.loop__challenge {
+  width: 100%;
+  padding: 20px 60px;
+}
+
+.loop__challenge .main__title {
+  color: rgb(78, 134, 134);
+  padding: 10px 50px;
+}
+
+.loop__challenge .admins h3 {
+  padding: 10px 50px;
+  font-family: "Vesper Libre", serif;
+}
+
+.loop__challenge .admins p {
+  padding: 5px 50px;
+}

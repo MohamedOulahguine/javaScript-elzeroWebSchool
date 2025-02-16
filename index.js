@@ -1072,3 +1072,124 @@ for (let i = start4; i < mix.length; i++) {
 // assignment 8 "week-> 7"
 // =======================
 console.error("assignment 8 week-> 7");
+
+let friends3 = ["Ahmed", "Sayed", "Ali", 1, 2, "Mahmoud", "Amany"];
+let index1 = 0;
+let counter1 = 0;
+
+while (index1 < friends3.length) {
+  if (
+    typeof friends3[index1] === "number" ||
+    friends3[index1].toLowerCase().startsWith("a")
+  ) {
+    index1++;
+    continue;
+  }
+  console.log(friends3[index1]);
+  index1++;
+}
+
+//====================
+//== Loop Challenge ==
+//====================
+console.error("Loop Challenge");
+
+let myAdmins = ["Ahmed", "Osama", "Sayed", "somi", "Samera"];
+let myEmployees = [
+  "Amgad",
+  "Samah",
+  "Ameer",
+  "Omar",
+  "Othman",
+  "Amany",
+  "Samia",
+  "Anwar",
+];
+
+// this is after i learn DOM
+
+let createContentForLoopChllg = document.createElement("div");
+let createTitleForLoopChllg = document.createElement("h1");
+let createContentForAdmins = document.createElement("div");
+let mainContainer = document.querySelector(".main__container");
+
+createContentForLoopChllg.className = "loop__challenge";
+createContentForAdmins.className = "admins";
+createTitleForLoopChllg.className = "main__title";
+
+mainContainer.appendChild(createContentForLoopChllg);
+createContentForLoopChllg.appendChild(createTitleForLoopChllg);
+createContentForLoopChllg.appendChild(createContentForAdmins);
+
+for (let i = 0; i < myAdmins.length; i++) {
+  if (myAdmins[i].toLowerCase() === "stop") {
+    break;
+  }
+  createTitleForLoopChllg.innerHTML = `We Have ${i + 1} Admins`;
+  let createTitleForAdmins = document.createElement("h3");
+  createTitleForAdmins.innerHTML = `the admin for team ${i + 1} is ${
+    myAdmins[i]
+  }`;
+  createContentForAdmins.appendChild(createTitleForAdmins);
+
+  for (let j = 0; j < myEmployees.length; j++) {
+    if (myAdmins[i][0].toLowerCase() === myEmployees[j][0].toLowerCase()) {
+      let createNameOfEmloyees = document.createElement("p");
+      createNameOfEmloyees.innerHTML += myEmployees[j];
+      createContentForAdmins.appendChild(createNameOfEmloyees);
+    }
+  }
+}
+
+// BEFORE THAT I MADE ONE LIKE THIS:::
+
+console.log(" on screen ");
+
+// let myAdminsS = ["Ahmed", "Osama", "sayed", "Stop", "omar", "simo"];
+// let myWorker = ["Amgad", "simo", "Ameer", "Omar", "Othman", "Amany", "Samia"];
+// let s = 0;
+// document.write(`<div class="mainDiv" style = "width:100%;">`);
+
+// document.write(
+//   `<h1 style = " padding:15px; text-align:center; background-color:#5cd322; color:white;">Loop, White, Do challenge</h1>`
+// );
+// for (; s < myAdminsS.length; s++) {
+//   if (myAdminsS[s].toLowerCase() === "stop") break;
+// }
+// document.write(
+//   `<p style="padding:20px; width:100%; background-color:rgb(185, 185, 16);">We Have ${s} Admins</p>`
+// );
+// document.write(`<hr>`);
+// document.write(`<div class="nestedDiv" style="100%">`);
+// mainLoop: for (let k = 0; k < s; k++) {
+//   document.write(
+//     `<div style="padding:20px; background-color:rgb(185, 185, 16);">We Admin For Team ${
+//       k + 1
+//     } Is ${myAdminsS[k]}</div>`
+//   );
+//   document.write(
+//     `<h3 style="padding:15px; background-color:rgb(185, 185, 16);">Team Members:</h3>`
+//   );
+//   nestedLoop: for (let l = 0; l < myWorker.length; l++) {
+//     if (
+//       myAdminsS[k][0] === myWorker[l][0] ||
+//       myAdminsS[k][0].toUpperCase() === myWorker[l][0].toUpperCase() ||
+//       myAdminsS[k][0].toLowerCase() === myWorker[l][0].toLowerCase()
+//     ) {
+//       document.write(
+//         `<p style="padding:10px; background-color:rgb(185, 185, 16);">=> ${myWorker[l]}</p>`
+//       );
+//     }
+//   }
+//   document.write(`<hr>`);
+// }
+// document.write(`</div>`);
+// document.write(
+//   `<h1 style = " padding:15px; text-align:center; background-color:#5cd322; color:white;">DONE,</h1>`
+// );
+// document.write(`</div>`);
+
+// =======================
+// assignment 1 "week-> 8"
+// =======================
+console.error("assignment 1 week-> 8");
