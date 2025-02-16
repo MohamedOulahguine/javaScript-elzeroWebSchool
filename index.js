@@ -687,3 +687,388 @@ switch (day.trim()[0].toUpperCase() + day.trim().slice(1)) {
   default:
     console.log("Its Not A Valid Day");
 }
+
+//============================
+//== If Condition Challenge ==
+//============================
+console.error("If Condition Challenge");
+
+/*
+  If Condition Challenge
+*/
+
+let a1 = 10;
+
+a1 < 10
+  ? console.log(10)
+  : a1 >= 10 && a1 <= 40
+  ? console.log("10 To 40")
+  : a1 > 40
+  ? console.log("> 40")
+  : console.log("Unknown");
+
+// Write Previous Condition With Ternary If Syntax
+
+let st = "Elzero Web School";
+
+if ((st.length + st.length).toString() === "34") {
+  console.log("Good0");
+}
+
+// W Position May Change
+if (st[st.toLowerCase().indexOf("w")].toLowerCase() === "w") {
+  console.log("Good1");
+}
+
+if (!typeof st !== "string") {
+  console.log("Good2");
+}
+
+if (typeof st.length === "number") {
+  console.log("Good3");
+}
+
+if (st.split(" ")[0].repeat(2) === "ElzeroElzero") {
+  console.log("Good4");
+}
+
+//=======================================
+//== Switch And If Condition Challenge ==
+//=======================================
+console.error("Switch And If Condition Challenge");
+
+/*
+  Switch Challenge
+*/
+
+let job = "Manager";
+let salary = 0;
+
+// if (job === "Manager") {
+//   salary = 8000;
+// } else if (job === "IT" || job === "Support") {
+//   salary = 6000;
+// } else if (job === "Developer" || job === "Designer") {
+//   salary = 7000;
+// } else {
+//   salary = 4000;
+// }
+
+switch (job.trim().charAt(0).toUpperCase() + job.trim().slice(1)) {
+  case "Manager":
+    console.log("salary is 8000$");
+    break;
+  case "IT":
+  case "Support":
+    console.log("salary is 6000$");
+    break;
+  case "Developer":
+  case "Designer":
+    console.log("salary is 7000$");
+    break;
+  default:
+    console.log("salary is 4000$");
+}
+
+/*
+  If Challenge
+*/
+
+let holidays = 0;
+let money = 0;
+
+// switch (holidays) {
+//   case 0:
+//     money = 5000;
+//     console.log(`My Money is ${money}`);
+//     break;
+//   case 1:
+//   case 2:
+//     money = 3000;
+//     console.log(`My Money is ${money}`);
+//     break;
+//   case 3:
+//     money = 2000;
+//     console.log(`My Money is ${money}`);
+//     break;
+//   case 4:
+//     money = 1000;
+//     console.log(`My Money is ${money}`);
+//     break;
+//   case 5:
+//     money = 0;
+//     console.log(`My Money is ${money}`);
+//     break;
+//   default:
+//     money = 0;
+//     console.log(`My Money is ${money}`);
+// }
+
+if (holidays === 0) {
+  money = 5000;
+  console.log(`My Money is ${money}`);
+} else if (holidays === 1 || holidays === 2) {
+  money = 3000;
+  console.log(`My Money is ${money}`);
+} else if (holidays === 3) {
+  money = 2000;
+  console.log(`My Money is ${money}`);
+} else if (holidays === 4) {
+  money = 1000;
+  console.log(`My Money is ${money}`);
+} else if (holidays === 5) {
+  money = 0;
+  console.log(`My Money is ${money}`);
+} else {
+  money = 0;
+  console.log(`My Money is ${money}`);
+}
+
+let fruits = ["apple", "banana", "cherry", "banana", "elderberry"];
+fruits.slice(2, -1);
+
+console.log(fruits.slice(2, -1));
+
+// =======================
+// assignment 1 "week-> 6"
+// =======================
+console.error("assignment 1 week-> 6");
+
+let myFriends = ["Ahmed", "Elham", "Osama", "Gamal"];
+let num12 = 3;
+
+// Method 1
+console.log(myFriends.slice(false, num12)); // ["Ahmed", "Elham", "Osama"];
+
+// Method 2
+myFriends.splice(num12, true);
+console.log(myFriends); // ["Ahmed", "Elham", "Osama"];
+
+// =======================
+// assignment 2 "week-> 6"
+// =======================
+console.error("assignment 2 week-> 6");
+
+let friends = ["Ahmed", "Eman", "Osama", "Gamal"];
+
+// Write Your Code Here
+friends.shift();
+friends.pop();
+console.log(friends); // ["Eman", "Osama"]
+
+// =======================
+// assignment 3 "week-> 6"
+// =======================
+console.error("assignment 3 week-> 6");
+
+let arrOne = ["C", "D", "X"];
+let arrTwo = ["A", "B", "Z"];
+let finalArr = [];
+
+// Write One Single Line Of Code
+console.log(finalArr.concat(arrOne, arrTwo).sort().reverse()); // ["Z", "X", "D", "C", "B", "A"]
+
+// =======================
+// assignment 4 "week-> 6"
+// =======================
+console.error("assignment 4 week-> 6");
+
+let website = "Go";
+let words = [`${website}ogle`, "Facebook", ["Elzero", "Web", "School"]];
+
+console.log(words[website.length][0].slice(website.length).toUpperCase()); // ZERO
+
+// =======================
+// assignment 5 "week-> 6"
+// =======================
+console.error("assignment 5 week-> 6");
+
+let needle = "JS";
+let haystack = ["PHP", "JS", "Python"];
+
+// Write 3 Solutions
+
+if (haystack.indexOf(needle) !== -1) {
+  console.log("found");
+} else {
+  console.log("not found");
+}
+
+if (haystack.includes(needle) === true) {
+  console.log("found");
+} else {
+  console.log("not found");
+}
+
+if (haystack.splice(haystack.indexOf(needle), 1).join("") === needle) {
+  console.log("found");
+} else {
+  console.log("not found");
+}
+
+// =======================
+// assignment 6 "week-> 6"
+// =======================
+console.error("assignment 6 week-> 6");
+
+let arr1 = ["A", "C", "X"];
+let arr2 = ["D", "E", "F", "Y"];
+let allArrs = [];
+
+// Your Code Here
+
+console.log(
+  allArrs.concat(arr1, arr2).sort().slice(-arr1.length).join("").toLowerCase()
+); // fxy
+
+//=====================
+//== Array Challenge ==
+//=====================
+console.error("Array Challenge");
+
+let zero = 0;
+
+let counter = 3;
+
+let my = ["Ahmed", "Mazero", "Elham", "Osama", "Gamal", "Ameer"];
+
+// Write Code Here
+
+console.log(my.slice(zero, counter + true).reverse()); // ["Osama", "Elham", "Mazero", "Ahmed"];
+
+console.log(my.slice(true, counter).reverse()); // ["Elham", "Mazero"]
+
+console.log(
+  my
+    .slice(true, counter)
+    .reverse()
+    .shift()
+    .slice(zero, counter - 1) +
+    my
+      .slice(true, counter)
+      .reverse()
+      .pop()
+      .slice(-counter - true)
+); // "Elzero"
+
+console.log(); // "rO"
+
+// =======================
+// assignment 1 "week-> 7"
+// =======================
+console.error("assignment 1 week-> 7");
+
+let start = 10;
+let end = 100;
+let exclude = 40;
+
+for (let i = start; i <= end; i += start) {
+  if (i === exclude) {
+    continue;
+  }
+  console.log(i);
+}
+
+// =======================
+// assignment 2 "week-> 7"
+// =======================
+console.error("assignment 2 week-> 7");
+
+let start1 = 10;
+let end1 = 0;
+let stop = 3;
+
+for (let i = start1; i > end1; i--) {
+  if (i < start1) {
+    console.log(`0${i}`);
+    if (i === stop) {
+      break;
+    }
+  } else {
+    console.log(i.toString());
+  }
+}
+
+// =======================
+// assignment 3 "week-> 7"
+// =======================
+console.error("assignment 3 week-> 7");
+
+let start2 = 1;
+let end2 = 6;
+let breaker = 2;
+
+for (let i = start2; i <= end2; i++) {
+  console.log(i.toString());
+  for (let j = breaker; j < end2; j += breaker) {
+    console.log(`-${j}`);
+  }
+}
+
+// =======================
+// assignment 4 "week-> 7"
+// =======================
+console.error("assignment 4 week-> 7");
+
+let index = 10;
+let jump = 2;
+
+for (;;) {
+  if (index > jump) {
+    console.log(index);
+  } else {
+    break;
+  }
+  index -= jump;
+}
+
+// =======================
+// assignment 5 "week-> 7"
+// =======================
+console.error("assignment 5 week-> 7");
+
+let friends1 = ["Ahmed", "Sayed", "Eman", "Mahmoud", "Ameer", "Osama", "Sameh"];
+let letter = "a";
+
+for (let i = letter.indexOf(letter); i < friends1.length; i++) {
+  if (friends1[i].toLowerCase().startsWith(letter)) {
+    continue;
+  }
+  console.log(`${i + letter.length}=>${friends1[i]}`);
+}
+
+// =======================
+// assignment 6 "week-> 7"
+// =======================
+console.error("assignment 6 week-> 7");
+
+let start3 = 0;
+let swappedName = "elZerO";
+let result = "";
+for (let i = start3; i < swappedName.split("").length; i++) {
+  if (swappedName[i] === swappedName[i].toLowerCase()) {
+    result += swappedName[i].toUpperCase();
+  } else {
+    result += swappedName[i].toLowerCase();
+  }
+}
+
+console.log(result);
+
+// =======================
+// assignment 7 "week-> 7"
+// =======================
+console.error("assignment 7 week-> 7");
+
+let start4 = 0;
+let mix = [1, 2, 3, "A", "B", "C", 4];
+
+for (let i = start4; i < mix.length; i++) {
+  if (typeof mix[i] === "string" || mix[i] === mix[start4]) continue;
+  console.log(mix[i]);
+}
+
+// =======================
+// assignment 8 "week-> 7"
+// =======================
+console.error("assignment 8 week-> 7");
