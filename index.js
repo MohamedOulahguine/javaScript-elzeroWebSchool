@@ -1193,3 +1193,47 @@ console.log(" on screen ");
 // assignment 1 "week-> 8"
 // =======================
 console.error("assignment 1 week-> 8");
+
+function sayHello(theName, theGender) {
+  return theGender === "Male"
+    ? `Hello Mr ${theName}`
+    : theGender === undefined
+    ? `Hello ${theName}`
+    : `Hello Miss ${theName}`;
+}
+
+// Needed Output
+console.log(sayHello("Osama", "Male")); // "Hello Mr Osama"
+console.log(sayHello("Eman", "Female")); // "Hello Miss Eman"
+console.log(sayHello("Sameh")); // "Hello Sameh"
+
+// =======================
+// assignment 2 "week-> 8"
+// =======================
+console.error("assignment 2 week-> 8");
+
+function calculate(firstNum, secondNum, operation) {
+  if (firstNum === NaN && secondNum === NaN) {
+    return `Second Number Not Found`;
+  } else {
+    if (operation === "add" || operation === undefined) {
+      return firstNum + secondNum;
+    } else if (operation === "subtract") {
+      return firstNum - secondNum;
+    } else if (operation === "multiply") {
+      return firstNum * secondNum;
+    }
+  }
+}
+
+// Needed Output
+console.log(calculate(20)); // Second Number Not Found
+console.log(calculate(20, 30)); // 50
+console.log(calculate(20, 30, "add")); // 50
+console.log(calculate(20, 30, "subtract")); // -10
+console.log(calculate(20, 30, "multiply")); // 600
+
+// =======================
+// assignment 3 "week-> 8"
+// =======================
+console.error("assignment 3 week-> 8");
