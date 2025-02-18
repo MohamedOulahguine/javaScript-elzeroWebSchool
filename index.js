@@ -1213,7 +1213,7 @@ console.log(sayHello("Sameh")); // "Hello Sameh"
 console.error("assignment 2 week-> 8");
 
 function calculate(firstNum, secondNum, operation) {
-  if (firstNum === NaN && secondNum === NaN) {
+  if (firstNum === undefined || secondNum === undefined) {
     return `Second Number Not Found`;
   } else {
     if (operation === "add" || operation === undefined) {
@@ -1224,6 +1224,7 @@ function calculate(firstNum, secondNum, operation) {
       return firstNum * secondNum;
     }
   }
+  console.log(firstNum === "");
 }
 
 // Needed Output
@@ -1237,3 +1238,229 @@ console.log(calculate(20, 30, "multiply")); // 600
 // assignment 3 "week-> 8"
 // =======================
 console.error("assignment 3 week-> 8");
+
+function ageInTime(theAge) {
+  if (theAge <= 10 || theAge >= 100) {
+    return `Age Out OF Range`;
+  } else {
+    return `Details About Your Age
+  Your Age Is ${theAge} => ${theAge * 12} Months
+  Your Age Is ${theAge} => ${theAge * 365.25} Days
+  Your Age Is ${theAge} => ${theAge * 365.25 * 24} Hours
+  Your Age Is ${theAge} => ${theAge * 365.25 * 24 * 60} Minutes
+  Your Age Is ${theAge} => ${theAge * 365.25 * 24 * 60 * 60} Seconds
+  `;
+  }
+}
+
+console.log(ageInTime(100));
+
+// =======================
+// assignment 4 "week-> 8"
+// =======================
+console.error("assignment 4 week-> 8");
+
+function checkStatus(a, b, c) {
+  // Your Code Here
+  let userData = [a, b, c];
+  let name, age, boolean;
+  for (let i = 0; i < userData.length; i++) {
+    if (typeof userData[i] === "string") {
+      name = userData[i];
+    } else if (typeof userData[i] === "number") {
+      age = userData[i];
+    } else if (typeof userData[i] === "boolean") {
+      boolean = userData[i];
+    }
+  }
+  if (boolean === true) {
+    return ` Hello ${name}, Your Age Is ${age}, You Are Available For Hire`;
+  } else {
+    return ` Hello ${name}, Your Age Is ${age}, You Are Not Available For Hire`;
+  }
+}
+
+// Needed Output
+console.log(checkStatus("Osama", 38, true)); // "Hello Osama, Your Age Is 38, You Are Available For Hire"
+console.log(checkStatus(38, "Osama", true)); // "Hello Osama, Your Age Is 38, You Are Available For Hire"
+console.log(checkStatus(true, 38, "Osama")); // "Hello Osama, Your Age Is 38, You Are Available For Hire"
+console.log(checkStatus(false, "Osama", 38)); // "Hello Osama, Your Age Is 38, You Are Not Available For Hire"
+
+// =======================
+// assignment 5 "week-> 8"
+// =======================
+console.error("assignment 5 week-> 8");
+console.log("on screen");
+
+// you will know after learn DOM
+
+function createSelectBox(startYear, endYear) {
+  let createSelect = document.createElement("select");
+  mainContainer.appendChild(createSelect);
+  createSelect.className = "select__box__year";
+  for (let i = startYear; i <= endYear; i++) {
+    let createOption = document.createElement("option");
+    createSelect.appendChild(createOption);
+    createOption.textContent = `${i}`;
+    createOption.value = `${i}`;
+  }
+}
+createSelectBox(2000, 2021);
+
+// old one is
+
+// function createSelectBox(startYear, endYear) {
+//   document.write(
+//     `<div style = "padding:15px; text-align:center; background-color:rgb(185, 185, 16); color:white;">`
+//   );
+//   document.write(
+//     `<select name="years" id="years"style = "padding:15px 30px; text-align:center; background-color:#5cd322; color:white;border:none;outline:0; font-size:20px;">`
+//   );
+//   for (let i = startYear; i <= endYear; i++) {
+//     document.write(`<option>${i}</option>`);
+//   }
+//   document.write(`</select>`);
+//   document.write("</div>");
+// }
+
+// createSelectBox(2002, 2024);
+
+// =======================
+// assignment 6 "week-> 8"
+// =======================
+console.error("assignment 6 week-> 8");
+
+function multiply(...nums) {
+  let result = 1;
+  for (let i = 0; i < nums.length; i++) {
+    if (typeof nums[i] === "string") {
+      continue;
+    }
+    result *= Math.trunc(nums[i]);
+  }
+  return result;
+}
+
+console.log(multiply(10, 20)); // 200
+console.log(multiply("A", 10, 30)); // 300
+console.log(multiply(100.5, 10, "B")); // 1000
+
+// =======================
+// assignment 1 "week-> 9"
+// =======================
+console.error("assignment 1 week-> 9");
+
+function getDetails(zName, zAge, zCountry) {
+  function namePattern(zName) {
+    // Write Your Code Here
+    // Osama Mohamed => Osama M.
+    // Ahmed ali => Ahmed A.
+    return `${zName.split(" ")[0]} ${zName.split(" ")[1][0].toUpperCase()}`;
+  }
+  function ageWithMessage(zAge) {
+    // Write Your Code Here
+    // 38 Is My Age => Your Age Is 38
+    // 32 Is The Age => Your Age Is 32
+    return Math.trunc(parseInt(zAge));
+  }
+  function countryTwoLetters(zCountry) {
+    // Write Your Code Here
+    // Egypt => You Live In EG
+    // Syria => You Live In SY
+    return zCountry.slice(0, 2).toUpperCase();
+  }
+  function fullDetails() {
+    // Write Your Code Here
+    return ` Hello ${namePattern(zName)}., Your Age Is ${ageWithMessage(
+      zAge
+    )}, You Live In ${countryTwoLetters(zCountry)}`;
+  }
+  return fullDetails(); // Do Not Edit This
+}
+
+console.log(getDetails("Osama Mohamed", "38 Is My Age", "Egypt"));
+// Hello Osama M., Your Age Is 38, You Live In EG
+
+console.log(getDetails("Ahmed ali", "32 Is The Age", "Syria"));
+// Hello Ahmed A., Your Age Is 32, You Live In SY
+
+// =======================
+// assignment 2 "week-> 9"
+// =======================
+console.error("assignment 2 week-> 9");
+
+let itsMe = () => `Iam A Normal Function`;
+
+console.log(itsMe()); // Iam A Normal Function
+
+let urlCreate = (protocol, web, tld) => `${protocol}://www.${web}.${tld}`;
+
+console.log(urlCreate("https", "elzero", "org")); // https://www.elzero.org
+
+// =======================
+// assignment 3 "week-> 9"
+// =======================
+console.error("assignment 3 week-> 9");
+
+let checker =
+  (zName = "unknow") =>
+  (status = "unknow") =>
+  (salary = "unknow") =>
+    status === "Available"
+      ? `${zName}, My Salary Is ${salary}`
+      : `Iam Not Avaialble`;
+
+console.log(checker("Osama")("Available")()); // Osama, My Salary Is 4000
+console.log(checker("Ahmed")("Not Available")()); // Iam Not Avaialble
+
+// =======================
+// assignment 4 "week-> 9"
+// =======================
+console.error("assignment 4 week-> 9");
+
+function specialMix(...data) {
+  let result = 0;
+  for (let i = 0; i < data.length; i++) {
+    if (parseInt(data[i])) {
+      result += parseInt(data[i]);
+    }
+  }
+  if (result == 0) {
+    return `All Is Strings`;
+  }
+  return result;
+}
+
+console.log(specialMix(10, 20, 30)); // 60
+console.log(specialMix("10Test", "Testing", "20Cool")); // 30
+console.log(specialMix("Testing", "10Testing", "40Cool")); // 50
+console.log(specialMix("Test", "Cool", "Test")); // All Is Strings
+
+//==============================
+//== Arrow Function Challenge ==
+//==============================
+console.error("Arrow Function Challenge");
+
+// [1] One Statement In Function
+// [2] Convert To Arrow Function
+// [3] Print The Output [Arguments May Change]
+
+let names = (...names) =>
+  `There Are ${names.length} ${typeof names[0]} [${names.join(
+    "] , ["
+  )}] => Done!`;
+
+console.log(names("Osama", "Mohamed", "Ali", "Ali", "Ibrahim"));
+
+// String [Osama], [Mohamed], [Ali], [Ibrahim] => Done !
+
+/* ================================= */
+
+// [1] Replace ??? In Return Statement To Get The Output
+// [2] Create The Same Function With Regular Syntax
+// [3] Use Array Inside The Arguments To Get The Output
+
+let myNumbers = [20, 50, 10, 60];
+let calc = (one, two, ...nums) => one + two + nums[0];
+
+console.log(calc(10, myNumbers[0], myNumbers[1]));
