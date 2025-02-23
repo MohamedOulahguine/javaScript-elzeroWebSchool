@@ -1463,4 +1463,613 @@ console.log(names("Osama", "Mohamed", "Ali", "Ali", "Ibrahim"));
 let myNumbers = [20, 50, 10, 60];
 let calc = (one, two, ...nums) => one + two + nums[0];
 
-console.log(calc(10, myNumbers[0], myNumbers[1]));
+console.log(calc(10, myNumbers[0], myNumbers[1])); //80
+
+// ========================
+// assignment 1 "week-> 10"
+// ========================
+console.error("assignment 1 week-> 10");
+
+let mix1 = [1, 2, 3, "E", 4, "l", "z", "e", "r", 5, "o"];
+
+let checkAndConcat = mix1
+  .map(function (el) {
+    return isNaN(parseInt(el)) ? el : "";
+  })
+  .reduce(function (acc, cur) {
+    return acc + cur;
+  });
+
+console.log(checkAndConcat);
+
+// Elzero
+
+// ========================
+// assignment 2 "week-> 10"
+// ========================
+console.error("assignment 2 week-> 10");
+
+let myString = "EElllzzzzzzzeroo";
+
+let filterRepeatLetter = myString
+  .split("")
+  .filter(function (el, index) {
+    return myString.indexOf(el) === index ? el : "";
+  })
+  .reduce(function (acc, cur) {
+    return acc + cur;
+  });
+
+// Elzero
+
+console.log(filterRepeatLetter);
+
+// ========================
+// assignment 3 "week-> 10"
+// ========================
+console.error("assignment 3 week-> 10");
+
+let myArray = ["E", "l", "z", ["e", "r"], "o"];
+
+let myArray1 = myArray
+  .reduce(function (acc, cur) {
+    return acc.concat(cur);
+  }, [])
+  .join("");
+
+console.log(myArray1);
+
+// Elzero
+
+// ========================
+// assignment 4 "week-> 10"
+// ========================
+console.error("assignment 4 week-> 10");
+
+let numsAndStrings = [1, 10, -10, -20, 5, "A", 3, "B", "C"];
+
+let filterAndMap = numsAndStrings
+  .filter(function (el) {
+    return !isNaN(parseInt(el));
+  })
+  .map(function (el) {
+    return -el;
+  });
+
+// [-1, -10, 10, 20, -5, -3]
+
+console.log(filterAndMap);
+
+// ========================
+// assignment 5 "week-> 10"
+// ========================
+console.error("assignment 5 week-> 10");
+
+let nums = [2, 12, 11, 5, 10, 1, 99];
+
+let retrunFiveHund = nums.reduce(function (acc, cur) {
+  return cur % 2 === 0 ? acc * cur : acc + cur;
+}, 1);
+
+// 500
+
+console.log(retrunFiveHund);
+
+//=====================================
+//== higher order Function Challenge ==
+//=====================================
+console.error("higher order Function Challenge");
+
+/*
+  You Can Use
+  - ,
+  - _
+  - Space
+  - True => 1 => One Time Only In The Code
+
+  You Cannot Use
+  - Numbers
+  - Letters
+
+  - You Must Use [Filter + Map + Reduce + Your Knowledge]
+  - Order Is Not Important
+  - All In One Chain
+
+*/
+
+let myString1 = "1,2,3,EE,l,z,e,r,o,_,W,e,b,_,S,c,h,o,o,l,2,0,Z";
+
+let solution = myString1
+  .split(",")
+  .filter(function (el) {
+    return isNaN(el);
+  })
+  .map(function (el, index, array) {
+    if (el.startsWith("_")) {
+      return " ";
+    }
+    if (el.length === !false + !false) {
+      return el.charAt(false);
+    }
+    if (index === array.length - true) {
+      return "";
+    }
+    return el;
+  })
+  .reduce(function (acc, cur) {
+    return acc + cur;
+  });
+
+console.log(solution); // Elzero Web School
+
+// ========================
+// assignment 1 "week-> 11"
+// ========================
+console.error("assignment 1 week-> 11");
+
+// Create Your Object Here
+let member = {
+  name: "Elzero",
+  age: 38,
+  country: "Egypt",
+  fullDetails: function () {
+    return `My Name Is ${this.name}, My Age Is ${this.age}, I Live In ${this.country}`;
+  },
+};
+
+console.log(member.name); // Elzero
+console.log(member.age); // 38
+console.log(member.country); // Egypt
+console.log(member.fullDetails());
+// My Name Is Elzero, My Age Is 38, I Live in Egypt
+
+// ========================
+// assignment 2 "week-> 11"
+// ========================
+console.error("assignment 2 week-> 11");
+
+// Method One
+// Create Your Object Here
+let objMethodOne = {
+  property: "Method One",
+};
+
+console.log(objMethodOne.property); // "Method One"
+
+// Method Two
+// Create Your Object Here
+
+let objMethodTwo = new Object();
+objMethodTwo.property = "Method Two";
+
+console.log(objMethodTwo.property); // "Method Two"
+
+// Method Three
+// Create Your Object Here
+let objMethodThree = Object.create({});
+objMethodThree.property = "Method Three";
+
+console.log(objMethodThree.property); // "Method Three"
+
+// Method Four
+// Create Your Object Here
+let objMethodFour = Object.assign({});
+objMethodFour.property = "Method Four";
+
+console.log(objMethodFour.property); // "Method Four"
+
+// ========================
+// assignment 3 "week-> 11"
+// ========================
+console.error("assignment 3 week-> 11");
+
+let a11 = 1;
+
+let threeNums = {
+  b: 2,
+  c: 3,
+  d: 4,
+};
+
+let twoNums = {
+  e: 5,
+  f: 6,
+};
+
+// Create Your Object Here in One Line
+let finalObject = Object.assign({ a11 }, threeNums, twoNums);
+
+console.log(finalObject);
+
+/*
+  a: 1
+  b: 2
+  c: 3
+  d: 4
+  e: 5
+  f: 6
+*/
+
+// ========================
+// assignment 4 "week-> 11"
+// ========================
+console.error("assignment 4 week-> 11");
+
+// The Object To Work With
+let myFavGames = {
+  "Trinity Universe": {
+    publisher: "NIS America",
+    price: 40,
+  },
+  "Titan Quest": {
+    publisher: "THQ",
+    bestThree: {
+      one: "Immortal Throne",
+      two: "Ragnarök",
+      three: "Atlantis",
+    },
+    price: 50,
+  },
+  YS: {
+    publisher: "Falcom",
+    bestThree: {
+      one: "Oath in Felghana",
+      two: "Ark Of Napishtim",
+      three: "origin",
+    },
+    price: 40,
+  },
+};
+
+// Code One => How To Get Object Length ?
+let objectLength = Object.keys(myFavGames).length;
+
+for (let i = 0; i < objectLength; i++) {
+  console.log(`The Game Name Is ${Object.keys(myFavGames)[i]}`);
+  console.log(
+    `The Publisher Is ${myFavGames[Object.keys(myFavGames)[i]].publisher}`
+  );
+  console.log(`The Price Is ${myFavGames[Object.keys(myFavGames)[i]].price}`);
+
+  // Check If Nested Object Has Property (bestThree)
+  if (myFavGames[Object.keys(myFavGames)[i]].bestThree) {
+    console.log("- Game Has Releases");
+    console.log(
+      `First => ${myFavGames[Object.keys(myFavGames)[i]].bestThree.one}`
+    );
+    console.log(
+      `Second => ${myFavGames[Object.keys(myFavGames)[i]].bestThree.two}`
+    );
+    console.log(
+      `Third => ${myFavGames[Object.keys(myFavGames)[i]].bestThree.three}`
+    );
+  }
+  console.log("#".repeat(20));
+}
+
+// Ouput
+
+// ("The Game Name Is Trinity Universe");
+// ("The Publisher Is NIS America");
+// ("The Price Is 40");
+// ("####################");
+// ("The Game Name Is Titan Quest");
+// ("The Publisher Is THQ");
+// ("The Price Is 50");
+// ("- Game Has Releases");
+// ("First => Immortal Throne");
+// ("Second => Ragnarök");
+// ("Third => Atlantis");
+// ("####################");
+// ("The Game Name Is YS");
+// ("The Publisher Is Falcom");
+// ("The Price Is 40");
+// ("- Game Has Releases");
+// ("First => Oath in Felghana");
+// ("Second => Ark Of Napishtim");
+// ("Third => origin");
+// ("####################");
+
+// ========================
+// assignment 1 "week-> 12"
+// ========================
+console.error("assignment 1 week-> 12");
+console.log("look to code");
+
+let firstWayToGetElement = document.getElementById("elzEro");
+let secondWayToGetElement = document.getElementsByTagName("div")[0]; //
+let thirdWayToGetElement = document.getElementsByName("elzEro")[0];
+let forthWayToGetElement = document.getElementsByClassName("elzEro")[0];
+let fifthWayToGetElement = document.querySelector(".elzEro");
+let sixthWayToGetElement = document.querySelector("#elzEro");
+let seventhWayToGetElement = document.querySelector("elzEro");
+let eighthWayToGetElement = document.querySelector("div"); //
+let ninethWayToGetElement = document.querySelectorAll(".elzEro")[0];
+let tenthWayToGetElement = document.querySelectorAll("#elzEro")[0];
+let eleventhWayToGetElement = document.querySelectorAll("elzEro")[0];
+let twelvethWayToGetElement = document.querySelectorAll("div")[0]; //
+
+// ========================
+// assignment 2 "week-> 12"
+// ========================
+console.error("assignment 2 week-> 12");
+console.log("read code you will find everything");
+
+let getImg = document.getElementsByClassName("img");
+
+let arrImg = [...getImg];
+
+arrImg.forEach((element) => {
+  element.firstElementChild.setAttribute(
+    "src",
+    "https://elzero.org/wp-content/themes/elzero/imgs/logo.png"
+  );
+  element.firstElementChild.setAttribute("alt", "Elzero Logo");
+  element.style.display = "none";
+});
+
+// ========================
+// assignment 3 "week-> 12"
+// ========================
+console.error("assignment 3 week-> 12");
+console.log("on screen");
+
+// form
+let createFormWeekTweleve = document.createElement("form");
+
+createFormWeekTweleve.setAttribute("action", "");
+
+mainContainer.appendChild(createFormWeekTweleve);
+
+createFormWeekTweleve.style.cssText = `
+display:flex; 
+flex-direction:column;
+align-items:center;
+width:100%;
+gap:20px;
+padding:20px 60px;`;
+
+//input => number type
+
+let createInputWeekTweleve = document.createElement("input");
+
+createInputWeekTweleve.setAttribute("type", "number");
+createInputWeekTweleve.setAttribute("name", "dollar");
+createInputWeekTweleve.setAttribute("placeholder", "Usd Dollar");
+
+createFormWeekTweleve.appendChild(createInputWeekTweleve);
+
+createInputWeekTweleve.style.cssText = `
+padding: 20px 10px;
+border: 1px solid rgb(78, 134, 134);
+outline: none;
+border-radius: 15px;
+font-size: 16px;
+color:rgb(78, 134, 134);`;
+
+// result
+
+let createDivWeekTweleve = document.createElement("div");
+
+createDivWeekTweleve.className = "result";
+createDivWeekTweleve.innerHTML = `{<span>0</span>} USD Dollar = {<span>0</span>} Egyptian Pound`;
+
+createFormWeekTweleve.appendChild(createDivWeekTweleve);
+
+createDivWeekTweleve.style.cssText = `
+font-size: 16px;
+color:rgb(78, 134, 134);`;
+
+//==============================
+createInputWeekTweleve.addEventListener("input", function (el) {
+  if (el.target.value === "") {
+    createDivWeekTweleve.innerHTML = `{<span>0</span>} USD Dollar = {<span>0</span>} Egyptian Pound`;
+  } else {
+    createDivWeekTweleve.innerHTML = `{<span>${
+      el.target.value
+    }</span>} USD Dollar = {<span>${(el.target.value * 50.2).toFixed(
+      2
+    )}</span>} Egyptian Pound`;
+  }
+  createDivWeekTweleve.firstElementChild.style.cssText = `
+  font-size: 16px;
+  color:rgb(27, 100, 100);
+  font-weight:bold;`;
+  createDivWeekTweleve.lastElementChild.style.cssText = `
+  font-size: 16px;
+  color:rgb(27, 100, 100);
+  font-weight:bold;`;
+});
+//==============================
+
+// ========================
+// assignment 4 "week-> 12"
+// ========================
+console.error("assignment 4 week-> 12");
+
+let getOne = document.getElementsByClassName("one")[0];
+let getTwo = document.getElementsByClassName("two")[0];
+
+let getOneTitle = getOne.getAttribute("title");
+let getTwoTitle = getTwo.getAttribute("title");
+let getOneInner = getOne.innerHTML;
+getOne.setAttribute("title", getTwoTitle);
+getTwo.setAttribute("title", getOneTitle);
+
+getOne.innerHTML = getTwo.innerHTML;
+getTwo.innerHTML = `${getOneInner} ${getTwo.attributes.length}`;
+
+console.log(getOne);
+console.log(getTwo);
+
+// ========================
+// assignment 5 "week-> 12"
+// ========================
+console.error("assignment 5 week-> 12");
+
+let checkAlt = document.querySelectorAll(".checkAlt");
+
+let checkAltArr = [...checkAlt];
+
+checkAltArr.forEach((element) => {
+  if (element.hasAttribute("alt")) {
+    element.setAttribute("alt", "old");
+  } else {
+    element.setAttribute("alt", "new alt");
+  }
+  console.log(element);
+});
+
+// ========================
+// assignment 6 "week-> 12"
+// ========================
+console.error("assignment 6 week-> 12");
+
+// Get the main form and its input elements
+let getMainForm = document.getElementsByClassName("create__elements")[0];
+let getNumForm = getMainForm.querySelector("[name='elements']");
+let getTextForm = getMainForm.querySelector("[name='texts']");
+
+// Add a submit event listener to the form
+getMainForm.addEventListener("submit", function (event) {
+  event.preventDefault(); // Prevent the form from submitting
+
+  // Get the section element once, outside the loop
+  let getSection = document.getElementsByName("type")[0];
+  if (!getSection) {
+    console.error("Element with name 'type' not found");
+    return;
+  }
+
+  // Get the results container
+  let results = document.querySelector(".results12");
+  if (!results) {
+    console.error("Element with class 'results12' not found");
+    return;
+  }
+
+  // Loop to create new elements based on the number provided
+  for (let i = 0; i < parseInt(getNumForm.value); i++) {
+    // Create a new element of the type specified in the section
+    let createNewElement = document.createElement(getSection.value);
+    createNewElement.id = `id-${i + 1}`;
+    createNewElement.className = `box`;
+    createNewElement.setAttribute("title", "Element");
+
+    // Create a text node with the provided text
+    let createNote = document.createTextNode(getTextForm.value);
+
+    // Append the text node to the new element
+    createNewElement.appendChild(createNote);
+
+    // Append the new element to the results container
+    results.appendChild(createNewElement);
+  }
+});
+
+// ========================
+// assignment 1 "week-> 13"
+// ========================
+console.error("assignment 1 week-> 13");
+
+///======================
+
+let getElInputNum = document.querySelectorAll('[type="number"]');
+let getElInputSub = document.querySelector('[type="submit"]');
+let getElInputClose = document.querySelector("#closeWdws");
+let getElInputMax = document.querySelector("#maximize");
+let getElInputMin = document.querySelector("#minimize");
+let getElMain = document.querySelector("main");
+let getElContent = document.querySelector("#content-code");
+let getElContentAside = document.querySelector("aside");
+let getElContentForm = document.querySelectorAll("form")[1];
+let getElLeft = document.querySelector("#left");
+let getElRight = document.querySelector("#right");
+
+// for type inside code inputs
+
+getElInputNum.forEach((element, index) => {
+  element.addEventListener("input", function () {
+    if (element.value.length > 1) {
+      element.value = element.value[index];
+    }
+
+    if (element.value.length === 1) {
+      if (index < getElInputNum.length - 1) {
+        getElInputNum[index + 1].focus();
+      } else {
+        getElInputSub.focus();
+      }
+    }
+
+    if (element.value.length === 0 && index > 0) {
+      getElInputNum[index - 1].focus();
+    }
+  });
+});
+
+// for close main content
+
+getElInputClose.addEventListener("click", function () {
+  getElContent.style.opacity = "0";
+  getElContent.style.visibility = "hidden";
+});
+
+// for max main content
+
+getElInputMax.addEventListener("click", function () {
+  getElContent.style.opacity = "1";
+  getElContent.style.visibility = "visible";
+});
+
+// for min main content
+
+getElInputMin.addEventListener("click", function () {
+  getElContent.style.cssText = `
+      grid-template-columns: 1fr;
+    `;
+  getElContentForm.style.gridColumn = "1/3";
+  getElContentAside.style.display = "none";
+  getElInputMin.setAttribute("data-content", "dblClick");
+});
+
+// for change possition content
+
+getElRight.addEventListener("click", function () {
+  getElContent.style.cssText = `
+    grid-template-columns: 65% 35%;
+    grid-template-rows: 100%;
+    `;
+  getElContentForm.style.gridColumn = "1/2";
+  getElContentAside.style.gridColumn = "2/3";
+  getElRight.focus();
+});
+
+let onClickeffict = function () {
+  getElContent.style.cssText = `
+      grid-template-columns: 35% 65%;
+      grid-template-rows: 100%;
+    `;
+  getElContentForm.style.gridColumn = "2/3";
+  getElContentAside.style.gridColumn = "1/2";
+  getElContentAside.style.display = "block";
+  getElLeft.focus();
+};
+
+getElInputMin.addEventListener("dblclick", onClickeffict);
+getElLeft.addEventListener("click", onClickeffict);
+
+//.....
+
+for (let i = 0; i < getElInputNum.length; i++) {
+  getElInputNum[i].addEventListener("paste", function (event) {
+    let pastedValue = event.clipboardData.getData("Text");
+    let values = pastedValue.split("");
+    getElInputNum.forEach((input, index) => {
+      if (values[index]) {
+        input.value = values[index];
+      }
+    });
+    event.preventDefault();
+  });
+}
