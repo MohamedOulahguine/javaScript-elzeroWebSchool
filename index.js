@@ -1924,6 +1924,7 @@ checkAltArr.forEach((element) => {
 // assignment 6 "week-> 12"
 // ========================
 console.error("assignment 6 week-> 12");
+console.log("on screen");
 
 // Get the main form and its input elements
 let getMainForm = document.getElementsByClassName("create__elements")[0];
@@ -1967,12 +1968,7 @@ getMainForm.addEventListener("submit", function (event) {
   }
 });
 
-// ========================
-// assignment 1 "week-> 13"
-// ========================
-console.error("assignment 1 week-> 13");
-
-///======================
+///======================appple check code===============
 
 let getElInputNum = document.querySelectorAll('[type="number"]');
 let getElInputSub = document.querySelector('[type="submit"]');
@@ -2073,3 +2069,10 @@ for (let i = 0; i < getElInputNum.length; i++) {
     event.preventDefault();
   });
 }
+
+// ========================
+// assignment 1 "week-> 13"
+// ========================
+console.error("assignment 1 week-> 13");
+
+console.log("in index.html in head and check on screen");

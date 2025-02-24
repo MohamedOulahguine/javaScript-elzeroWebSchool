@@ -12,6 +12,21 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        let challenge__week13 = document.querySelector(".challenge__week13");
+        let getLinks = challenge__week13.querySelectorAll("a");
+
+        getLinks.forEach((element) => {
+          element.addEventListener("click", (event) => {
+            if (!element.classList.contains("open") && element !== "Elzero") {
+              event.preventDefault();
+            }
+          });
+          console.log(element);
+        });
+      });
+    </script>
   </head>
   <body>
     <header id="mainHeader">
