@@ -1968,111 +1968,224 @@ getMainForm.addEventListener("submit", function (event) {
   }
 });
 
-///======================appple check code===============
-
-let getElInputNum = document.querySelectorAll('[type="number"]');
-let getElInputSub = document.querySelector('[type="submit"]');
-let getElInputClose = document.querySelector("#closeWdws");
-let getElInputMax = document.querySelector("#maximize");
-let getElInputMin = document.querySelector("#minimize");
-let getElMain = document.querySelector("main");
-let getElContent = document.querySelector("#content-code");
-let getElContentAside = document.querySelector("aside");
-let getElContentForm = document.querySelectorAll("form")[1];
-let getElLeft = document.querySelector("#left");
-let getElRight = document.querySelector("#right");
-
-// for type inside code inputs
-
-getElInputNum.forEach((element, index) => {
-  element.addEventListener("input", function () {
-    if (element.value.length > 1) {
-      element.value = element.value[index];
-    }
-
-    if (element.value.length === 1) {
-      if (index < getElInputNum.length - 1) {
-        getElInputNum[index + 1].focus();
-      } else {
-        getElInputSub.focus();
-      }
-    }
-
-    if (element.value.length === 0 && index > 0) {
-      getElInputNum[index - 1].focus();
-    }
-  });
-});
-
-// for close main content
-
-getElInputClose.addEventListener("click", function () {
-  getElContent.style.opacity = "0";
-  getElContent.style.visibility = "hidden";
-});
-
-// for max main content
-
-getElInputMax.addEventListener("click", function () {
-  getElContent.style.opacity = "1";
-  getElContent.style.visibility = "visible";
-});
-
-// for min main content
-
-getElInputMin.addEventListener("click", function () {
-  getElContent.style.cssText = `
-      grid-template-columns: 1fr;
-    `;
-  getElContentForm.style.gridColumn = "1/3";
-  getElContentAside.style.display = "none";
-  getElInputMin.setAttribute("data-content", "dblClick");
-});
-
-// for change possition content
-
-getElRight.addEventListener("click", function () {
-  getElContent.style.cssText = `
-    grid-template-columns: 65% 35%;
-    grid-template-rows: 100%;
-    `;
-  getElContentForm.style.gridColumn = "1/2";
-  getElContentAside.style.gridColumn = "2/3";
-  getElRight.focus();
-});
-
-let onClickeffict = function () {
-  getElContent.style.cssText = `
-      grid-template-columns: 35% 65%;
-      grid-template-rows: 100%;
-    `;
-  getElContentForm.style.gridColumn = "2/3";
-  getElContentAside.style.gridColumn = "1/2";
-  getElContentAside.style.display = "block";
-  getElLeft.focus();
-};
-
-getElInputMin.addEventListener("dblclick", onClickeffict);
-getElLeft.addEventListener("click", onClickeffict);
-
-//.....
-
-for (let i = 0; i < getElInputNum.length; i++) {
-  getElInputNum[i].addEventListener("paste", function (event) {
-    let pastedValue = event.clipboardData.getData("Text");
-    let values = pastedValue.split("");
-    getElInputNum.forEach((input, index) => {
-      if (values[index]) {
-        input.value = values[index];
-      }
-    });
-    event.preventDefault();
-  });
-}
-
 // ========================
 // assignment 1 "week-> 13"
 // ========================
 console.error("assignment 1 week-> 13");
 
 console.log("in index.html in head and check on screen");
+
+// ========================
+// assignment 2 "week-> 13"
+// ========================
+console.error("assignment 2 week-> 13");
+console.log("on screen");
+
+let assignment_2_week_13 = document.querySelector(".assignment_2_week_13");
+let input_add = assignment_2_week_13.querySelector(".input_add");
+let input_remove = assignment_2_week_13.querySelector(".input_remove");
+let current_element = assignment_2_week_13.querySelector("#current_element");
+let show__classes = assignment_2_week_13.querySelector("#show__classes");
+
+function updatedisplay() {
+  let classes = Array.from(show__classes.classList).sort();
+  if (classes.length === 0) {
+    show__classes.textContent = "no classes to show";
+    show__classes.removeAttribute("class");
+  } else {
+    let spansHTML = "";
+    for (let i = 0; i < classes.length; i++) {
+      spansHTML += `<span>${classes[i]}</span> `;
+    }
+    show__classes.innerHTML = spansHTML.trim();
+  }
+}
+
+function addClasses() {
+  let result = "";
+  result += input_add.value.toLowerCase().trim();
+  show__classes.classList.add(...result.split(" ").sort());
+  input_add.value = "";
+  updatedisplay();
+}
+
+function removeClasses() {
+  if (!show__classes.classList.contains(...input_remove.value.split(" "))) {
+    input_remove.setAttribute("placeholder", "ops!! not found 💔");
+    input_remove.value = "";
+  } else {
+    show__classes.classList.remove(
+      ...input_remove.value.toLowerCase().trim().split(" ").sort()
+    );
+    show__classes.innerHTML = show__classes.className;
+    input_remove.setAttribute("placeholder", "found💗, and still have some ");
+    input_remove.value = "";
+    if (show__classes.classList.length === 0) {
+      input_remove.setAttribute("placeholder", "done! 💪");
+    } else {
+      input_remove.setAttribute(
+        "placeholder",
+        "ops! still have some classes 😁"
+      );
+    }
+  }
+  updatedisplay();
+}
+
+input_add.addEventListener("blur", addClasses);
+
+input_remove.addEventListener("blur", removeClasses);
+
+// ========================
+// assignment 3 "week-> 13"
+// ========================
+console.error("assignment 3 week-> 13");
+console.log("on screen");
+
+let getElOurElement = document.querySelector(".our-element");
+let assignment_3_week_13 = document.querySelector(".assignment_3_week_13");
+let p = assignment_3_week_13.querySelector("p");
+let createElementAndAttributes = function (t, c, ttls, dV, txt) {
+  let element = document.createElement(t);
+  element.className = c;
+  element.title = ttls;
+  element.setAttribute("data-value", dV);
+  element.textContent = txt;
+  return element;
+};
+
+let createELStart = createElementAndAttributes(
+  "div",
+  "start",
+  "Start Element",
+  "Start",
+  "Start"
+);
+let createELEnd = createElementAndAttributes(
+  "div",
+  "end",
+  "End Element",
+  "End",
+  "End"
+);
+
+getElOurElement.addEventListener("click", function () {
+  getElOurElement.before(createELStart);
+  getElOurElement.after(createELEnd);
+  let assignment_3_week_13 = document.querySelector(".assignment_3_week_13");
+  let p = assignment_3_week_13.querySelector("p");
+  p.remove();
+});
+
+// ========================
+// assignment 4 "week-> 13"
+// ========================
+console.error("assignment 4 week-> 13");
+
+let assignment_4_week_13 = document.querySelector(".assignment_4_week_13");
+
+console.log(assignment_4_week_13.lastChild.nodeValue.trim());
+
+// ========================
+// assignment 5 "week-> 13"
+// ========================
+console.error("assignment 5 week-> 13");
+
+let assignment_5_week_13 = document.querySelector(".assignment_5_week_13");
+
+let allElements = assignment_5_week_13.querySelectorAll(
+  " div ,span ,p, article, section"
+);
+
+console.log([...allElements]);
+
+[...allElements].forEach((element) => {
+  element.addEventListener("click", function () {
+    console.log(`this is ${element.nodeName.toLowerCase()} element`);
+  });
+});
+
+//===================
+//== DOM Challenge ==
+//===================
+console.error("DOM Challenge");
+
+// ==================== header ======================
+let createMainContainerDiv = document.createElement("div");
+createMainContainerDiv.className = "container";
+createMainContainerDiv.id = "mainContainer";
+
+let createMainHeader = document.createElement("header");
+createMainHeader.className = "main__header";
+createMainHeader.id = "main__header";
+createMainHeader.style.cssText =
+  "background-color:rgb(78, 134, 134); color:#fff; width:100%;padding:0 60px;";
+
+let createMainLogo = document.createElement("a");
+createMainLogo.className = "main__logo";
+createMainLogo.id = "main__logo";
+createMainLogo.textContent = "Elzero";
+
+let createMainNav = document.createElement("nav");
+let createMainNavUl = document.createElement("ul");
+
+let navListArr = ["home", "about", "service", "contact"];
+for (let i = 0; i < navListArr.length; i++) {
+  let createMainNavUlLi = document.createElement("li");
+  createMainNavUlLi.innerHTML = navListArr[i];
+  createMainNavUl.appendChild(createMainNavUlLi);
+}
+
+mainContainer.appendChild(createMainContainerDiv);
+createMainContainerDiv.appendChild(createMainHeader);
+createMainHeader.appendChild(createMainLogo);
+createMainHeader.appendChild(createMainNav);
+createMainNav.appendChild(createMainNavUl);
+
+// ==================== content ======================
+
+let createMainContent = document.createElement("div");
+createMainContent.className = "content";
+
+createMainContent.style.cssText = `
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+justify-content:center;
+margin:20px 0;
+`;
+createMainContainerDiv.appendChild(createMainContent);
+
+for (let i = 0; i < 15; i++) {
+  let createContentBoxes = document.createElement("div");
+  createContentBoxes.className = `box ${i + 1}`;
+  createContentBoxes.innerHTML = `<b style="font-size:45px;">${
+    i + 1
+  }</b> <span>product</span>`;
+  createContentBoxes.style.cssText = `
+  background-color:#fff;
+  width:100%;
+  min-width:300px;
+  max-width:350px;
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  flex-direction: column;
+  align-items: center;
+  padding:30px 20px;`;
+
+  createMainContent.appendChild(createContentBoxes);
+}
+
+// ==================== footer ======================
+
+let createMainFooter = document.createElement("footer");
+createMainFooter.innerHTML = "copyright,2025 💗";
+createMainContainerDiv.appendChild(createMainFooter);
+createMainFooter.style.cssText =
+  "background-color:rgb(78, 134, 134); color:#fff; width:100%;padding:20px 60px;text-align:center;";
+
+// ========================
+// assignment 1 "week-> 14"
+// ========================
+console.error("assignment 1 week-> 14");
