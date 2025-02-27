@@ -2189,3 +2189,5 @@ createMainFooter.style.cssText =
 // assignment 1 "week-> 14"
 // ========================
 console.error("assignment 1 week-> 14");
+
+console.log("hi");
