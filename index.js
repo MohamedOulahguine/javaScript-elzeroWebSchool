@@ -2185,9 +2185,99 @@ createMainContainerDiv.appendChild(createMainFooter);
 createMainFooter.style.cssText =
   "background-color:rgb(78, 134, 134); color:#fff; width:100%;padding:20px 60px;text-align:center;";
 
+console.log("on screen");
 // ========================
 // assignment 1 "week-> 14"
 // ========================
 console.error("assignment 1 week-> 14");
+console.log("on screen");
 
-console.log("hi");
+function prompttt() {
+  let promptValue;
+
+  while (true) {
+    promptValue = window.prompt("Type numbers from - to");
+
+    if (promptValue === null) {
+      console.log("User canceled the input.");
+      break;
+    }
+
+    let inputValues = promptValue.split(" ");
+
+    let arr = [];
+    inputValues.forEach((num) => {
+      if (!isNaN(parseInt(num))) {
+        arr.push(parseInt(num));
+      }
+    });
+
+    if (arr.length === 0) {
+      window.alert("No valid numbers entered🤔. Please try again.");
+      continue;
+    }
+
+    let minNum = Math.min(...arr);
+    let maxNum = Math.max(...arr);
+
+    for (let i = minNum; i <= maxNum; i++) {
+      console.log(i);
+    }
+
+    break;
+  }
+}
+
+//setTimeout(prompttt, 5000);
+
+// ========================
+// assignment 2 "week-> 14"
+// ========================
+console.error("assignment 2 week-> 14");
+console.log("on screen");
+
+setTimeout(() => {
+  let callPopup = document.querySelector("body .layout");
+  let btn = document.querySelector("body .layout button");
+  callPopup.style.display = "block";
+  btn.addEventListener("click", () => {
+    btn.parentElement.remove();
+  });
+  callPopup.addEventListener("click", () => {
+    btn.parentElement.remove();
+  });
+}, 5000);
+
+// ========================
+// assignment 3 "week-> 14"
+// ========================
+// ========================
+// assignment 4 "week-> 14"
+// ========================
+// ========================
+// assignment 5 "week-> 14"
+// ========================
+console.error("assignment 3 week-> 14");
+console.error("assignment 4 week-> 14");
+console.error("assignment 5 week-> 14");
+console.log("on screen");
+
+let counterSet = document.querySelector("main .counter");
+let setCounterSet = setInterval(() => {
+  counterSet.innerHTML -= 1;
+  if (counterSet.innerHTML === "0") {
+    clearInterval(setCounterSet);
+  }
+  if (counterSet.innerHTML === "5") {
+    open(
+      "https://codepen.io/guine123",
+      "_blank",
+      "width=400 ,height=400, left=500,top=500"
+    );
+  }
+}, 1000);
+
+// ========================
+// assignment 1 "week-> 15"
+// ========================
+console.error("assignment 1 week-> 15");
