@@ -2236,17 +2236,17 @@ function prompttt() {
 console.error("assignment 2 week-> 14");
 console.log("on screen");
 
-setTimeout(() => {
-  let callPopup = document.querySelector("body .layout");
-  let btn = document.querySelector("body .layout button");
-  callPopup.style.display = "block";
-  btn.addEventListener("click", () => {
-    btn.parentElement.remove();
-  });
-  callPopup.addEventListener("click", () => {
-    btn.parentElement.remove();
-  });
-}, 5000);
+// setTimeout(() => {
+//   let callPopup = document.querySelector("body .layout");
+//   let btn = document.querySelector("body .layout button");
+//   callPopup.style.display = "block";
+//   btn.addEventListener("click", () => {
+//     btn.parentElement.remove();
+//   });
+//   callPopup.addEventListener("click", () => {
+//     btn.parentElement.remove();
+//   });
+// }, 5000);
 
 // ========================
 // assignment 3 "week-> 14"
@@ -2269,15 +2269,182 @@ let setCounterSet = setInterval(() => {
     clearInterval(setCounterSet);
   }
   if (counterSet.innerHTML === "5") {
-    open(
-      "https://codepen.io/guine123",
-      "_blank",
-      "width=400 ,height=400, left=500,top=500"
-    );
+    // open(
+    //   "https://codepen.io/guine123",
+    //   "_blank",
+    //   "width=400 ,height=400, left=500,top=500"
+    // );
   }
 }, 1000);
 
 // ========================
+// just for try localStorge
+// ========================
+
+let gitList = document.querySelectorAll("ul li");
+let exp = document.querySelector(".experience");
+if (window.localStorage.getItem("background-color")) {
+  exp.style.background = window.localStorage.getItem("background-color");
+}
+gitList.forEach((li) => {
+  li.addEventListener("click", (event) => {
+    window.localStorage.setItem(
+      "background-color",
+      event.currentTarget.dataset.color
+    );
+    exp.style.background = window.localStorage.getItem("background-color");
+  });
+});
+
+// ========================
 // assignment 1 "week-> 15"
 // ========================
+// ========================
+// assignment 2 "week-> 15"
+// ========================
 console.error("assignment 1 week-> 15");
+console.error("assignment 2 week-> 15");
+console.log("on screen");
+
+// font family
+
+let getSelectFontFmly = document.querySelectorAll(
+  "#fontsFamily optgroup option"
+);
+let first_assignment_1 = document.querySelector(".first_assignment_1");
+
+// check if font family in local storge
+
+if (window.localStorage.getItem("font-family")) {
+  first_assignment_1.style.fontFamily =
+    window.localStorage.getItem("font-family");
+}
+
+// Add event listeners to the select options
+
+[...getSelectFontFmly].forEach((el) => {
+  el.addEventListener("click", () => {
+    first_assignment_1.style.fontFamily = el.value;
+    window.localStorage.setItem("font-family", el.value);
+    window.localStorage.getItem("font-family");
+  });
+});
+
+// color
+
+let getSelectColorType = document.querySelectorAll(
+  "#colorType optgroup option"
+);
+let first_assignment_1_h1 = document.querySelector(
+  ".first_assignment_1 .site h1"
+);
+let first_assignment_1_btn = document.querySelector(
+  ".first_assignment_1 .site button"
+);
+let first_assignment_1_title = document.querySelectorAll(
+  ".first_assignment_1 .settings optgroup"
+);
+let first_assignment_1_border_lft = document.querySelector(
+  ".first_assignment_1 .settings"
+);
+
+// check if color in local storge
+
+if (window.localStorage.getItem("background && color")) {
+  first_assignment_1_h1.style.color = window.localStorage.getItem(
+    "background && color"
+  );
+  first_assignment_1_btn.style.background = window.localStorage.getItem(
+    "background && color"
+  );
+  [...first_assignment_1_title].forEach((ele) => {
+    ele.style.color = window.localStorage.getItem("background && color");
+  });
+  first_assignment_1_border_lft.style.borderColor = window.localStorage.getItem(
+    "background && color"
+  );
+}
+
+// Add event listeners to the select options
+
+[...getSelectColorType].forEach((el) => {
+  el.addEventListener("click", () => {
+    first_assignment_1_h1.style.color = el.value;
+    first_assignment_1_btn.style.background = el.value;
+    [...first_assignment_1_title].forEach((ele) => {
+      ele.style.color = el.value;
+    });
+    first_assignment_1_border_lft.style.borderColor = el.value;
+    window.localStorage.setItem("background && color", el.value);
+  });
+});
+
+// font size
+
+let getSelectFontSize = document.querySelectorAll("#fontSize optgroup option");
+let first_assignment_1_h1_size = document.querySelector(
+  ".first_assignment_1 .site h1"
+);
+let first_assignment_1_p_size = document.querySelector(
+  ".first_assignment_1 .site p"
+);
+let first_assignment_1_btn_size = document.querySelector(
+  ".first_assignment_1 .site button a"
+);
+
+let first_assignment_1_titleSize = document.querySelectorAll(
+  ".first_assignment_1 .settings optgroup"
+);
+
+// check if font size in local storge
+
+if (window.localStorage.getItem("font-size")) {
+  first_assignment_1_h1_size.style.fontSize =
+    window.localStorage.getItem("font-size");
+  first_assignment_1_btn_size.style.fontSize =
+    window.localStorage.getItem("font-size");
+  [...first_assignment_1_titleSize].forEach((ele) => {
+    ele.style.fontSize = window.localStorage.getItem("font-size");
+  });
+}
+
+// Add event listeners to the select options
+
+[...getSelectFontSize].forEach((el) => {
+  el.addEventListener("click", () => {
+    first_assignment_1_h1_size.style.fontSize = el.value;
+    first_assignment_1_btn_size.style.fontSize = el.value;
+    [...first_assignment_1_titleSize].forEach((ele) => {
+      ele.style.fontSize = el.value;
+    });
+    window.localStorage.setItem("font-size", el.value);
+  });
+});
+
+// =============
+// BOM Challenge
+// =============
+console.error("BOM Challenge");
+
+let BOM_Challenge = document.querySelector(".BOM_Challenge");
+let Input_field = BOM_Challenge.querySelector(".Input_field");
+let textInput = Input_field.querySelector("input");
+let inputBtn = Input_field.querySelector("button");
+let output = BOM_Challenge.querySelector(".output");
+
+inputBtn.addEventListener("click", () => {
+  let craeteLMainList = document.createElement("div");
+  let craeteOutputList = document.createElement("p");
+  let craeteBtnList = document.createElement("button");
+  craeteBtnList.innerHTML = "delete";
+
+  output.appendChild(craeteLMainList);
+  craeteLMainList.appendChild(craeteOutputList);
+  craeteLMainList.appendChild(craeteBtnList);
+  craeteOutputList.textContent = textInput.value;
+
+  craeteBtnList.addEventListener("click", () => {
+    craeteBtnList.parentElement.remove();
+  });
+  window.localStorage.setItem("tasks", textInput.value);
+});
