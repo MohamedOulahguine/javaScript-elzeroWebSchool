@@ -1987,6 +1987,7 @@ let input_remove = assignment_2_week_13.querySelector(".input_remove");
 let current_element = assignment_2_week_13.querySelector("#current_element");
 let show__classes = assignment_2_week_13.querySelector("#show__classes");
 
+// FROM AI 😁
 function updatedisplay() {
   let classes = Array.from(show__classes.classList).sort();
   if (classes.length === 0) {
@@ -2000,6 +2001,7 @@ function updatedisplay() {
     show__classes.innerHTML = spansHTML.trim();
   }
 }
+//===============
 
 function addClasses() {
   let result = "";
@@ -2010,7 +2012,11 @@ function addClasses() {
 }
 
 function removeClasses() {
-  if (!show__classes.classList.contains(...input_remove.value.split(" "))) {
+  if (
+    !show__classes.classList.contains(
+      ...input_remove.value.toLowerCase().split(" ")
+    )
+  ) {
     input_remove.setAttribute("placeholder", "ops!! not found 💔");
     input_remove.value = "";
   } else {
@@ -2425,6 +2431,7 @@ if (window.localStorage.getItem("font-size")) {
 // BOM Challenge
 // =============
 console.error("BOM Challenge");
+console.log("on screen");
 
 let BOM_Challenge = document.querySelector(".BOM_Challenge");
 let Input_field = BOM_Challenge.querySelector(".Input_field");
@@ -2432,19 +2439,477 @@ let textInput = Input_field.querySelector("input");
 let inputBtn = Input_field.querySelector("button");
 let output = BOM_Challenge.querySelector(".output");
 
+let tasksArray = [];
+
+getDataFromLocalStorge();
+
+if (window.localStorage.getItem("task")) {
+  tasksArray = JSON.parse(window.localStorage.getItem("task"));
+}
+
 inputBtn.addEventListener("click", () => {
-  let craeteLMainList = document.createElement("div");
-  let craeteOutputList = document.createElement("p");
-  let craeteBtnList = document.createElement("button");
-  craeteBtnList.innerHTML = "delete";
-
-  output.appendChild(craeteLMainList);
-  craeteLMainList.appendChild(craeteOutputList);
-  craeteLMainList.appendChild(craeteBtnList);
-  craeteOutputList.textContent = textInput.value;
-
-  craeteBtnList.addEventListener("click", () => {
-    craeteBtnList.parentElement.remove();
-  });
-  window.localStorage.setItem("tasks", textInput.value);
+  if (textInput.value !== "") {
+    addTasksToArray(textInput.value);
+    textInput.value = "";
+  }
 });
+
+textInput.addEventListener("keydown", (event) => {
+  if (event.key === "Enter" && textInput.value !== "") {
+    addTasksToArray(textInput.value);
+    textInput.value = "";
+  }
+});
+
+function addTasksToArray(textInput) {
+  let tasksObj = {
+    id: Date.now(),
+    text: textInput,
+    completed: false,
+  };
+  tasksArray.push(tasksObj);
+  addTasksToPage(tasksArray);
+  addTasksToLocalStorage(tasksArray);
+  clearAll();
+}
+
+function addTasksToPage(tasksArray) {
+  output.innerHTML = "";
+  tasksArray.forEach((task) => {
+    let craeteLMainList = document.createElement("div");
+    craeteLMainList.className = "task";
+    craeteLMainList.setAttribute("data-id", task.id);
+    let craeteOutputList = document.createElement("p");
+    let craeteBtnList = document.createElement("button");
+    craeteBtnList.innerHTML = "delete";
+    removeTasksFromPage(craeteBtnList);
+    output.appendChild(craeteLMainList);
+    craeteLMainList.appendChild(craeteOutputList);
+    craeteLMainList.appendChild(craeteBtnList);
+    craeteOutputList.textContent = task.text;
+  });
+}
+
+function addTasksToLocalStorage(tasksArray) {
+  window.localStorage.setItem("task", JSON.stringify(tasksArray));
+}
+
+function getDataFromLocalStorge() {
+  let data = window.localStorage.getItem("task");
+  if (data) {
+    let tasksArray = JSON.parse(data);
+    addTasksToPage(tasksArray);
+  }
+}
+
+function removeTasksFromPage(tasksbtn) {
+  tasksbtn.addEventListener("click", (e) => {
+    if (e.target.innerHTML === "delete") {
+      e.target.parentElement.remove();
+      removeTasksFromLocalStorage(
+        e.target.parentElement.getAttribute("data-id")
+      );
+    }
+  });
+}
+function removeTasksFromLocalStorage(tasksbtn) {
+  tasksArray = tasksArray.filter((task) => {
+    return task.id != tasksbtn;
+  });
+  addTasksToLocalStorage(tasksArray);
+  clearAll();
+}
+
+if (output.children.length !== 0) {
+  document.querySelector(".BOM_Challenge > button").style.display = "block";
+}
+function clearAll() {
+  if (output.children.length !== 0) {
+    document.querySelector(".BOM_Challenge > button").style.display = "block";
+  } else {
+    document.querySelector(".BOM_Challenge > button").style.display = "none";
+  }
+  document
+    .querySelector(".BOM_Challenge > button")
+    .addEventListener("click", () => {
+      output.innerHTML = "";
+      localStorage.removeItem("task");
+    });
+}
+
+// ========================
+// assignment 1 "week-> 16"
+// ========================
+console.error("assignment 1 week-> 16");
+let myNumberss = [1, 2, 3, 4, 5];
+
+// Write Your Destructuring Assignment Here
+let [aaaaa, , , , ee] = myNumberss;
+
+console.log(aaaaa * ee); // 5
+
+// ========================
+// assignment 2 "week-> 16"
+// ========================
+console.error("assignment 2 week-> 16");
+
+let mySkills = [
+  "HTML",
+  "CSS",
+  "JavaScript",
+  ["PHP", "Python", ["Django", "Laravel"]],
+];
+
+// Write Your Destructuring Assignment Here
+let [aaaaaa, bbbb, ccc, [ddd, eee, [ff, gg]]] = mySkills;
+
+console.log(
+  `My Skills: ${aaaaaa}, ${bbbb}, ${ccc}, ${ddd}, ${eee}, ${ff}, ${gg}`
+);
+
+// My Skills: HTML, CSS, JavaScript, PHP, Python, Django, Laravel
+
+// ========================
+// assignment 3 "week-> 16"
+// ========================
+console.error("assignment 3 week-> 16");
+
+let arr11 = ["Ahmed", "Sameh", "Sayed"];
+let arr22 = ["Mohamed", "Gamal", "Amir"];
+let arr3 = ["Haytham", "Shady", "Mahmoud"];
+
+// Play With Arrays To Prepare For Destructuring
+// Write Your Destructuring Assignment Here
+let bestFriend = [...arr3.slice(1), arr11[0]];
+
+let [a2, b2, c2] = bestFriend;
+
+console.log(`My Best Friends: ${a2}, ${b2}, ${c2}`);
+
+// My Best Friends: Shady, Mahmoud, Ahmed
+
+// ========================
+// assignment 4 "week-> 16"
+// ========================
+console.error("assignment 4 week-> 16");
+
+let memberr = {
+  age: 30,
+  working: false,
+  country: "Egypt",
+  hobbies: ["Reading", "Swimming", "Programming"],
+};
+
+let {
+  age: a4,
+  working: w,
+  country: c1,
+  hobbies: [h1, , h3],
+} = memberr;
+// Write Your Destructuring Assignment Here
+
+console.log(`My Age Is ${a4} And Iam ${w ? "" : "Not"} Working`);
+// My Age Is 30 And Iam Not Working
+
+console.log(`I Live in ${c1}`);
+// I Live in Egypt
+
+console.log(`My Hobbies: ${h1} And ${h3}`);
+// My Hobbies: Reading And Programming
+
+// ========================
+// assignment 5 "week-> 16"
+// ========================
+console.error("assignment 5 week-> 16");
+
+let game = {
+  title: "YS",
+  developer: "Falcom",
+  releases: {
+    "Oath In Felghana": ["USA", "Japan"],
+    "Ark Of Napishtim": {
+      US: "20 USD",
+      JAP: "10 USD",
+    },
+    Origin: "30 USD",
+  },
+};
+
+let { title: t, developer: d1, releases: r } = game;
+let { "Oath In Felghana": o, "Ark Of Napishtim": a3, Origin: or } = r;
+let [u, j] = o;
+let { US: u_price, JAP: j_price } = a3;
+// Write Your Destructuring Assignment/s Here
+
+console.log(`My Favourite Games Style Is ${t} Style`);
+// My Favourite Games Style Is YS Style
+
+console.log(`And I Love ${d1} Games`);
+// And I Love Falcom Games
+
+console.log(
+  `My Best Release Is ${Object.keys(r)[0]} It Released in ${u} & ${j}`
+);
+// My Best Release Is Oath In Felghana It Released in USA & Japan
+
+console.log(`Although I Love ${Object.keys(r)[1]}`);
+// Although I Love Ark Of Napishtim
+
+console.log(`${Object.keys(r)[1]} Price in USA Is ${u_price}`);
+// Ark Of Napishtim Price in USA Is 20 USD
+
+console.log(`${Object.keys(r)[1]} Price in Japan Is ${j_price}`);
+// Ark Of Napishtim Price in Japan Is 10 USD
+
+console.log(`Origin Price Is ${or}`);
+// Origin Price Is 30 USD
+
+// ========================
+// assignment 6 "week-> 16"
+// ========================
+console.error("assignment 6 week-> 16");
+
+let chosen = 2;
+
+let myFriendsss = [
+  { title: "Osama", age: 39, available: true, skills: ["HTML", "CSS"] },
+  { title: "Ahmed", age: 25, available: false, skills: ["Python", "Django"] },
+  { title: "Sayed", age: 33, available: true, skills: ["PHP", "Laravel"] },
+];
+
+function chose(num) {
+  if (chosen > myFriendsss.length) {
+    console.log(
+      `sorry we only have ${myFriendsss.length} members, 🌚so choose from 1 to ${myFriendsss.length}`
+    );
+  } else {
+    let {
+      title: t,
+      age: a,
+      available: av,
+      skills: [, second],
+    } = myFriendsss[num - 1];
+    console.log(t);
+    console.log(a);
+    console.log(av ? "Available" : "Not Available");
+    console.log(second);
+  }
+}
+
+chose(chosen);
+
+// ========================
+// assignment 1 "week-> 17"
+// ========================
+console.error("assignment 1 week-> 17");
+
+let setOfNumbers = new Set([10]);
+
+console.log(setOfNumbers.add(20).add(setOfNumbers.size));
+console.log([...setOfNumbers].pop());
+
+// ========================
+// assignment 2 "week-> 17"
+// ========================
+console.error("assignment 2 week-> 17");
+
+let myFriends1 = ["Osama", "Ahmed", "Sayed", "Sayed", "Mahmoud", "Osama"];
+
+// Needed Output
+//(4)[("Ahmed", "Mahmoud", "Osama", "Sayed")];
+
+console.log(Array.from(new Set(myFriends1)).sort());
+
+// ========================
+// assignment 3 "week-> 17"
+// ========================
+console.error("assignment 3 week-> 17");
+
+let myInfo = {
+  username: "Osama",
+  role: "Admin",
+  country: "Egypt",
+};
+console.log(new Map(Object.entries(myInfo)));
+console.log(new Map(Object.entries(myInfo)).size);
+console.log(new Map(Object.entries(myInfo)).has("role"));
+// Needed Output
+// Map(3) {'username' => 'Osama', 'role' => 'Admin', 'country' => 'Egypt'}
+// 3
+// true
+
+// ========================
+// assignment 4 "week-> 17"
+// ========================
+console.error("assignment 4 week-> 17");
+
+let theNumber = 100020003000;
+
+console.log(
+  Number(
+    Array.from(new Set([...theNumber.toString()]))
+      .sort()
+      .join("")
+  )
+);
+
+// Needed Output
+// 123;
+
+// ========================
+// assignment 5 "week-> 17"
+// ========================
+console.error("assignment 5 week-> 17");
+
+let theName = "Elzero";
+console.log([...theName]);
+console.log(Array.from(theName));
+console.log(theName.split(""));
+console.log(Object.assign([], theName));
+console.log([...new Set([...theName])]);
+
+// Needed Output
+// ["E", "l", "z", "e", "r", "o"];
+
+// ========================
+// assignment 6 "week-> 17"
+// ========================
+console.error("assignment 6 week-> 17");
+
+let chars = ["A", "B", "C", "D", "E", 10, 15, 6];
+
+let charsNum = chars.filter((num) => (typeof num === "number" ? num : ""));
+let charsStr = chars.filter((str) => (typeof str === "string" ? str : ""));
+
+console.log(
+  [...charsNum, ...charsStr].copyWithin(
+    0,
+    [...charsNum, ...charsStr].findIndex((str) => typeof str === "string"),
+    charsNum.length * 2
+  )
+);
+
+// ========================
+// assignment 7 "week-> 17"
+// ========================
+console.error("assignment 7 week-> 17");
+
+let numsOne = [1, 2, 3];
+let numsTwo = [4, 5, 6];
+
+console.log([...numsOne, ...numsTwo]);
+console.log(numsOne.concat(numsTwo));
+console.log(Array.from([...numsOne, ...numsTwo]));
+console.log([numsOne, numsTwo].flatMap((x) => x));
+
+// ========================
+// assignment 8 "week-> 17"
+// ========================
+console.error("assignment 8 week-> 17");
+
+let n1 = [10, 30, 10, 20];
+let n2 = [30, 20, 10];
+
+console.log([...n1, ...n2].length * Math.max(...n2));
+
+// ========================
+// assignment 1 "week-> 18"
+// ========================
+console.error("assignment 1 week-> 18");
+
+let ip = "2001:db8::1234:5678:5.6.7.8 ";
+
+let IPReg =
+  /(\d{4}:\w{2}\d*)?::?(([0-9a-fA-F]{1,4}(.|::?)){1,5}[0-9a-fA-F]{1,4})?/gi;
+
+console.log(IPReg.test(ip));
+console.log(ip.match(IPReg));
+
+// ========================
+// assignment 2 "week-> 18"
+// ========================
+console.error("assignment 2 week-> 18");
+
+let specialNames = "Os10O OsO Os100O Osa100O Os1000 Os100m";
+
+console.log(specialNames.match(/\bos\d*o\b/gim));
+
+// Output
+// ['Os10O', 'OsO', 'Os100O']
+
+// ========================
+// assignment 3 "week-> 18"
+// ========================
+console.error("assignment 3 week-> 18");
+
+let phone = "+(995)-123 (4567)";
+
+console.log(/^\+\(\d{3}\)\-\d{3}\s\(\d{4}\)$/.test(phone));
+console.log(phone.match(/^\+\(\d{3}\)\-\d{3}\s\(\d{4}\)$/));
+
+// ========================
+// assignment 4 "week-> 18"
+// ========================
+console.error("assignment 4 week-> 18");
+
+let re = /https?:\/\/(?:[-\w]+\.)?([-\w]+)\.\w+(?:\.\w+)?\/?.*/i;
+
+console.log(`/.../ => Regular Expression Literal`);
+console.log(
+  `https => HyperText Transfer Protocol Secure is a secure version of HTTP that encrypts data using SSL/TLS to protect information exchanged between a web browser and a server.`
+);
+console.log(`https"?"=>  Zero or one`);
+console.log(`\/ => to scape`);
+console.log(`[] => Character set`);
+console.log(`+ =>  One or more`);
+console.log(`\. => literal dot `);
+console.log(`() => grouping`);
+console.log(`* => Zero or more`);
+console.log(`. => any character`);
+console.log(`^ => start of string`);
+console.log(`$ => end of string`);
+console.log(`\d => add digit(0-9)`);
+console.log(`\w => Any word character (a-z, A-Z, 0-9, _)`);
+console.log(`\s => any whitespace`);
+console.log(`{n,m} => between n and m times`);
+
+// ========================
+// assignment 5 "week-> 18"
+// ========================
+console.error("assignment 5 week-> 18");
+
+let date1 = "25/10/1982";
+let date2 = "25 - 10 - 1982";
+let date3 = "25 10 1982";
+let date4 = "25 10 82";
+
+let regex = /(\d{1,2}\s?-?\s?\/?){2}\d{2,4}$/; // Write Pattern Here
+
+console.log(date1.match(regex)); // "25/10/1982"
+console.log(date2.match(regex)); // "25 - 10 - 1982"
+console.log(date3.match(regex)); // "25 10 1982"
+console.log(date4.match(regex)); // "25 10 82"
+
+// ========================
+// assignment 6 "week-> 18"
+// ========================
+console.error("assignment 6 week-> 18");
+
+let url1 = "elzero.org";
+let url2 = "http://elzero.org";
+let url3 = "https://elzero.org";
+let url4 = "https://www.elzero.org";
+let url5 = "https://www.elzero.org:8080/articles.php?id=100&cat=topics";
+
+let regEx = /^(http|https)?(:\/\/)?(www.)?\w+.\w{2,6}(:\d+)?(\/\S*)?$/; // Write Your Pattern Here
+
+console.log(url1.match(regEx));
+console.log(url2.match(regEx));
+console.log(url3.match(regEx));
+console.log(url4.match(regEx));
+console.log(url5.match(regEx));
+
+// ========================
+// assignment 1 "week-> 19"
+// ========================
+console.error("assignment 1 week-> 19");
