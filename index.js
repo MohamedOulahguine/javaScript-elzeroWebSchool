@@ -2913,3 +2913,12 @@ console.log(url5.match(regEx));
 // assignment 1 "week-> 19"
 // ========================
 console.error("assignment 1 week-> 19");
+function User(id, username, salary) {
+  this.i = id;
+  this.u = username;
+  this.s = salary + 1000;
+}
+
+console.log(Array.from(new User(100, "Elzero", 5000)));
+console.log(new User(101, "Hassan", 6000));
+let userThree = new User(102, "Sayed", 7000);
