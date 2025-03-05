@@ -2913,12 +2913,107 @@ console.log(url5.match(regEx));
 // assignment 1 "week-> 19"
 // ========================
 console.error("assignment 1 week-> 19");
-function User(id, username, salary) {
-  this.i = id;
-  this.u = username;
-  this.s = salary + 1000;
+
+class Car {
+  constructor(name, model, price) {
+    this.n = name;
+    this.m = model;
+    this.p = price;
+  }
+
+  run() {
+    return `The ${this.n} is running now`;
+  }
+
+  stop() {
+    return `The ${this.n} is stopped now`;
+  }
 }
 
-console.log(Array.from(new User(100, "Elzero", 5000)));
-console.log(new User(101, "Hassan", 6000));
-let userThree = new User(102, "Sayed", 7000);
+let firstObjectCar = new Car("Toyota", "2022", "20000");
+let secondObjectCar = new Car("BMW", "2021", "30000");
+
+console.log(
+  `The First Car Name Is ${firstObjectCar.n}, Model Is ${firstObjectCar.m} And Price Is ${firstObjectCar.p}`
+);
+console.log(firstObjectCar.run());
+
+console.log(
+  `The Second Car Name Is ${secondObjectCar.n}, Model Is ${secondObjectCar.m} And Price Is ${secondObjectCar.p}`
+);
+console.log(secondObjectCar.stop());
+
+// ========================
+// assignment 2 "week-> 19"
+// ========================
+console.error("assignment 2 week-> 19");
+
+class Phone extends Car {
+  constructor(name, serial, price) {
+    super(name, "", price);
+    this.s = serial;
+  }
+}
+
+class Tablet extends Phone {
+  constructor(name, serial, price, size = "Unkown") {
+    super(name, serial, price);
+    this.sz = size;
+  }
+  fullDetails() {
+    return `Tablet Name ${this.n}, its Serial is ${this.s}, its price ${this.p} And Size Is ${this.sz}`;
+  }
+}
+
+let TabletOne = new Tablet("iPad", 100200300, 1500, 12.9);
+let TabletTwo = new Tablet("Nokia", 350450650, 800, 10.5);
+let TabletThree = new Tablet("LG", 250450650, 650);
+
+console.log(`${TabletOne.fullDetails()}`);
+// iPad Serial is 100200300 And Size Is 12.9
+
+console.log(`${TabletTwo.fullDetails()}`);
+// Nokia Serial is 350450650 And Size Is 10.5
+
+console.log(`${TabletThree.fullDetails()}`);
+// LG Serial is 250450650 And Size Is Unknown
+
+// ========================
+// assignment 3 "week-> 19"
+// ========================
+console.error("assignment 3 week-> 19");
+
+// Edit The Class
+class User {
+  #c;
+  constructor(username, card) {
+    this.u = username;
+    this.#c = card;
+  }
+  getCard() {
+    return this.#c;
+  }
+
+  setCard(card) {
+    return card.match(/(\d{4}-){3}\d{4}/);
+  }
+}
+
+// Do Not Edit Anything Below
+
+let userOne = new User("Osama", "1234-5678-1234-5678");
+console.log(userOne.setCard());
+let userTwo = new User("Ahmed", "1234567812345678");
+let userThree = new User("Ghareeb", 1234567812345678);
+
+console.log(userOne.showData);
+// Hello Osama Your Credit Card Number Is 1234-5678-1234-5678
+
+console.log(userTwo.showData);
+// Hello Ahmed Your Credit Card Number Is 1234-5678-1234-5678
+
+console.log(userThree.showData);
+// Hello Ghareeb Your Credit Card Number Is 1234-5678-1234-5678
+
+console.log(userOne.c); // Prevent Accessing To Card Property Here
+// Undefined
