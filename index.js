@@ -2983,48 +2983,49 @@ console.log(`${TabletThree.fullDetails()}`);
 // ========================
 console.error("assignment 3 week-> 19");
 
-// Edit The Class
-class User {
-  #c;
-  constructor(username, card) {
-    this.u = username;
-    this.#c = card;
-  }
-  getCard() {
-    return this.#c;
-  }
+// // Edit The Class
+// class User {
+//   #c;
+//   constructor(username, card) {
+//     this.u = username;
+//     this.#c = card;
+//   }
+//   getCard() {
+//     return this.#c;
+//   }
 
-  setCard(card) {
-    return card.match(/(\d{4}-){3}\d{4}/);
+//   setCard(card) {
+//     return card.match(/(\d{4}-){3}\d{4}/);
+//   }
+// }
+
+// // Do Not Edit Anything Below
+
+// let userOne = new User("Osama", "1234-5678-1234-5678");
+// console.log(userOne.setCard());
+// let userTwo = new User("Ahmed", "1234567812345678");
+// let userThree = new User("Ghareeb", 1234567812345678);
+
+// console.log(userOne.showData);
+// // Hello Osama Your Credit Card Number Is 1234-5678-1234-5678
+
+// console.log(userTwo.showData);
+// // Hello Ahmed Your Credit Card Number Is 1234-5678-1234-5678
+
+// console.log(userThree.showData);
+// // Hello Ghareeb Your Credit Card Number Is 1234-5678-1234-5678
+
+// console.log(userOne.c); // Prevent Accessing To Card Property Here
+// // Undefined
+
+function nLogfunc(n) {
+  let y = n;
+  while (n > 1) {
+    n = Math.floor(n / 2);
+    for (let i = 1; i < y; i++) {
+      console.log("simo guine" + `${i}`);
+    }
   }
 }
 
-// Do Not Edit Anything Below
-
-let userOne = new User("Osama", "1234-5678-1234-5678");
-console.log(userOne.setCard());
-let userTwo = new User("Ahmed", "1234567812345678");
-let userThree = new User("Ghareeb", 1234567812345678);
-
-console.log(userOne.showData);
-// Hello Osama Your Credit Card Number Is 1234-5678-1234-5678
-
-console.log(userTwo.showData);
-// Hello Ahmed Your Credit Card Number Is 1234-5678-1234-5678
-
-console.log(userThree.showData);
-// Hello Ghareeb Your Credit Card Number Is 1234-5678-1234-5678
-
-console.log(userOne.c); // Prevent Accessing To Card Property Here
-// Undefined
-
-console.log("hi");
-console.log("hisimo");
-console.log("hsssssi");
-console.log("his");
-var x, y, z; // Declare 3 variables
-x = 5; // Assign the value 5 to x
-y = 6; // Assign the value 6 to y
-z = x + y; // Assign the sum of x and y to z
-
-document.getElementById("demo").innerHTML = "The value of z is " + z + ".";
+nLogfunc(8);
