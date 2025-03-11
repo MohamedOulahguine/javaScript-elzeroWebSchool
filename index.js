@@ -3029,3 +3029,14 @@ function nLogfunc(n) {
 }
 
 nLogfunc(8);
+
+function gcd(a, b) {
+  while (b !== 0) {
+    let temp = b;
+    b = a % b;
+    a = temp;
+  }
+  return a;
+}
+
+console.log(gcd(1701, 3768));
