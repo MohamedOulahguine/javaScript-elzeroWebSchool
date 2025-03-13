@@ -3055,3 +3055,58 @@ console.log(userThree.showData);
 
 console.log(userOne.c); // Prevent Accessing To Card Property Here
 // Undefined
+
+// ========================
+// assignment 4 "week-> 19"
+// ========================
+console.error("assignment 4 week-> 19");
+
+// Write Your Code Here
+
+String.prototype.addLove = function () {
+  return `I Love ${this} Web School`;
+};
+
+// Do Not Edit Below
+let myStr = "Elzero";
+console.log(myStr.addLove()); // I Love Elzero Web School
+
+// ========================
+// assignment 5 "week-> 19"
+// ========================
+console.error("assignment 5 week-> 19");
+
+let myObj = {
+  username: "Elzero",
+  id: 100,
+  score: 1000,
+  country: "Egypt",
+};
+
+// Write Your Code Here
+
+Object.defineProperties(myObj, {
+  id: {
+    enumerable: false,
+  },
+  score: {
+    writable: false,
+  },
+  country: {
+    configurable: false,
+  },
+});
+
+myObj.score = 500;
+
+for (let prop in myObj) {
+  console.log(`${prop} => ${myObj[prop]}`);
+}
+
+console.log(myObj);
+
+// Needed Output
+
+// "username => Elzero"
+// "score => 1000"
+// {username: 'Elzero', score: 1000, id: 100}
