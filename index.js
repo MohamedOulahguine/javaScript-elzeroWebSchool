@@ -2908,76 +2908,6 @@ console.log(url2.match(regEx));
 console.log(url3.match(regEx));
 console.log(url4.match(regEx));
 console.log(url5.match(regEx));
-
-// ========================
-// assignment 1 "week-> 19"
-// ========================
-console.error("assignment 1 week-> 19");
-
-class Car {
-  constructor(name, model, price) {
-    this.n = name;
-    this.m = model;
-    this.p = price;
-  }
-
-  run() {
-    return `The ${this.n} is running now`;
-  }
-
-  stop() {
-    return `The ${this.n} is stopped now`;
-  }
-}
-
-let firstObjectCar = new Car("Toyota", "2022", "20000");
-let secondObjectCar = new Car("BMW", "2021", "30000");
-
-console.log(
-  `The First Car Name Is ${firstObjectCar.n}, Model Is ${firstObjectCar.m} And Price Is ${firstObjectCar.p}`
-);
-console.log(firstObjectCar.run());
-
-console.log(
-  `The Second Car Name Is ${secondObjectCar.n}, Model Is ${secondObjectCar.m} And Price Is ${secondObjectCar.p}`
-);
-console.log(secondObjectCar.stop());
-
-// ========================
-// assignment 2 "week-> 19"
-// ========================
-console.error("assignment 2 week-> 19");
-
-class Phone extends Car {
-  constructor(name, serial, price) {
-    super(name, "", price);
-    this.s = serial;
-  }
-}
-
-class Tablet extends Phone {
-  constructor(name, serial, price, size = "Unkown") {
-    super(name, serial, price);
-    this.sz = size;
-  }
-  fullDetails() {
-    return `Tablet Name ${this.n}, its Serial is ${this.s}, its price ${this.p} And Size Is ${this.sz}`;
-  }
-}
-
-let TabletOne = new Tablet("iPad", 100200300, 1500, 12.9);
-let TabletTwo = new Tablet("Nokia", 350450650, 800, 10.5);
-let TabletThree = new Tablet("LG", 250450650, 650);
-
-console.log(`${TabletOne.fullDetails()}`);
-// iPad Serial is 100200300 And Size Is 12.9
-
-console.log(`${TabletTwo.fullDetails()}`);
-// Nokia Serial is 350450650 And Size Is 10.5
-
-console.log(`${TabletThree.fullDetails()}`);
-// LG Serial is 250450650 And Size Is Unknown
-
 // ========================
 // assignment 3 "week-> 19"
 // ========================
@@ -3018,25 +2948,69 @@ console.error("assignment 3 week-> 19");
 // console.log(userOne.c); // Prevent Accessing To Card Property Here
 // // Undefined
 
-function nLogfunc(n) {
-  let y = n;
-  while (n > 1) {
-    n = Math.floor(n / 2);
-    for (let i = 1; i < y; i++) {
-      console.log("simo guine" + `${i}`);
-    }
+// ========================
+// assignment 1 "week-> 19"
+// ========================
+console.error("assignment 1 week-> 19");
+
+class Car {
+  constructor(name, model, price) {
+    this.n = name;
+    this.m = model;
+    this.p = price;
+  }
+  run() {
+    return `car is running now`;
+  }
+  stop() {
+    return `car is stopped`;
   }
 }
 
-nLogfunc(8);
+let mgcar = new Car("MG", 2022, 420000);
 
-function gcd(a, b) {
-  while (b !== 0) {
-    let temp = b;
-    b = a % b;
-    a = temp;
+console.log(
+  `Car One Name Is ${mgcar.n} And Model Is ${mgcar.m} And Price Is ${mgcar.p}`
+);
+console.log(mgcar.run());
+
+// ========================
+// assignment 2 "week-> 19"
+// ========================
+console.error("assignment 2 week-> 19");
+
+class Phone {
+  constructor(name, serial, price) {
+    this.name = name;
+    this.serial = serial;
+    this.price = price;
   }
-  return a;
 }
 
-console.log(gcd(1701, 3768));
+class Tablet extends Phone {
+  constructor(name, serial, price, size) {
+    super(name, serial, price);
+    this.size = size || "Unknown";
+  }
+  fullDetails() {
+    return `${this.name} Serial is ${this.serial} And Size Is ${this.size}`;
+  }
+}
+
+let TabletOne = new Tablet("iPad", 100200300, 1500, 12.9);
+let TabletTwo = new Tablet("Nokia", 350450650, 800, 10.5);
+let TabletThree = new Tablet("LG", 250450650, 650);
+
+console.log(`${TabletOne.fullDetails()}`);
+// iPad Serial is 100200300 And Size Is 12.9
+
+console.log(`${TabletTwo.fullDetails()}`);
+// Nokia Serial is 350450650 And Size Is 10.5
+
+console.log(`${TabletThree.fullDetails()}`);
+// LG Serial is 250450650 And Size Is Unknown
+
+// ========================
+// assignment 3 "week-> 19"
+// ========================
+console.error("assignment 3 week-> 19");
