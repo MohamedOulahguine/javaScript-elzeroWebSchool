@@ -3014,3 +3014,44 @@ console.log(`${TabletThree.fullDetails()}`);
 // assignment 3 "week-> 19"
 // ========================
 console.error("assignment 3 week-> 19");
+
+class User {
+  #c;
+  constructor(username, card) {
+    this.u = username;
+    this.#c = card;
+  }
+  get cardNumber() {
+    if (!/^\d{16}$/.test(this.#c.toString().replace(/-/g, ""))) {
+      return "Invalid Card Number";
+    } else {
+      if (this.#c.toString().match(/(\d{4}-){3}\d{4}/)) {
+        return this.#c;
+      } else {
+        return this.#c
+          .toString()
+          .replace(/(\d{4})(\d{4})(\d{4})(\d{4})/, "$1-$2-$3-$4");
+      }
+    }
+  }
+
+  get showData() {
+    return `Hello ${this.u} Your Credit Card Number Is ${this.cardNumber}`;
+  }
+}
+
+let userOne = new User("Osama", "1234-5678-1234-5678");
+let userTwo = new User("Ahmed", "1234567812345678");
+let userThree = new User("Ghareeb", 1234567812345678);
+
+console.log(userOne.showData);
+// Hello Osama Your Credit Card Number Is 1234-5678-1234-5678
+
+console.log(userTwo.showData);
+// Hello Ahmed Your Credit Card Number Is 1234-5678-1234-5678
+
+console.log(userThree.showData);
+// Hello Ghareeb Your Credit Card Number Is 1234-5678-1234-5678
+
+console.log(userOne.c); // Prevent Accessing To Card Property Here
+// Undefined
