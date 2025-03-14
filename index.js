@@ -3110,3 +3110,82 @@ console.log(myObj);
 // "username => Elzero"
 // "score => 1000"
 // {username: 'Elzero', score: 1000, id: 100}
+
+// ========================
+// assignment 1 "week-> 20"
+// ========================
+console.error("assignment 1 week-> 20");
+
+let birthDate = new Date("04-02-2002");
+let currentDate = new Date();
+
+// Calculate the difference in milliseconds
+let ageInMilliseconds = currentDate - birthDate;
+
+// Calculate each time unit
+console.log(`${(ageInMilliseconds / 1000).toFixed()} Seconds`);
+console.log(`${(ageInMilliseconds / 1000 / 60).toFixed()} Minutes`);
+console.log(`${(ageInMilliseconds / 1000 / 60 / 60).toFixed()} Hours`);
+console.log(`${(ageInMilliseconds / 1000 / 60 / 60 / 24).toFixed()} Days`);
+console.log(
+  `${(ageInMilliseconds / 1000 / 60 / 60 / 24 / 30).toFixed()} Months`
+);
+console.log(
+  `${(ageInMilliseconds / 1000 / 60 / 60 / 24 / 365.25).toFixed()} Years`
+);
+
+// ========================
+// assignment 2 "week-> 20"
+// ========================
+console.error("assignment 2 week-> 20");
+
+let date = new Date(0);
+
+date.setFullYear(date.getFullYear() + 10);
+
+date.setHours(0);
+date.setMinutes(0);
+date.setSeconds(1);
+
+console.log(date);
+
+// ========================
+// assignment 3 "week-> 20"
+// ========================
+console.error("assignment 3 week-> 20");
+
+let lastMonthDay = new Date();
+
+console.log(new Date(lastMonthDay.getFullYear(), lastMonthDay.getMonth(), 0));
+
+let months = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+
+let monthName =
+  months[
+    new Date(lastMonthDay.getFullYear(), lastMonthDay.getMonth(), 0).getMonth()
+  ];
+let lastDay = new Date(
+  lastMonthDay.getFullYear(),
+  lastMonthDay.getMonth(),
+  0
+).getDate();
+
+console.log(`Previous Month Is ${monthName} And Last Day Is ${lastDay}`);
+
+// ========================
+// assignment 4 "week-> 20"
+// ========================
+console.error("assignment 4 week-> 20");
