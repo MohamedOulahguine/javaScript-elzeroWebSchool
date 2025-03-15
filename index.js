@@ -3189,3 +3189,105 @@ console.log(`Previous Month Is ${monthName} And Last Day Is ${lastDay}`);
 // assignment 4 "week-> 20"
 // ========================
 console.error("assignment 4 week-> 20");
+
+console.log(new Date(Date.UTC(2002, 3, 2, 0, 0, 0)));
+console.log(new Date("04-02-2002"));
+console.log(new Date(Date.parse("04-02-2002")));
+let date5 = new Date();
+date5.setFullYear(2002);
+date5.setMonth(3);
+date5.setDate(2);
+date5.setHours(0);
+date5.setMinutes(0);
+date5.setSeconds(0);
+date5.setMilliseconds(0);
+console.log(date5.toString());
+
+// ========================
+// assignment 5 "week-> 20"
+// ========================
+console.error("assignment 5 week-> 20");
+
+let startt = new Date();
+for (let i = 0; i < 9999; i += 1000) {
+  console.log(i);
+}
+let endd = new Date();
+
+console.log(`Loop Took ${endd - startt} Milliseconds.`);
+
+// ========================
+// assignment 6 "week-> 20"
+// ========================
+console.error("assignment 6 week-> 20");
+
+// Write Your Generator Function Here
+function* gen() {
+  let n = 1;
+  while (true) {
+    let value = 100 * Math.pow(n, 2) - 160 * n + 74;
+    yield value;
+    n++;
+  }
+}
+
+let generator = gen();
+
+console.log(generator.next()); // {value: 14, done: false}
+console.log(generator.next()); // {value: 154, done: false}
+console.log(generator.next()); // {value: 494, done: false}
+console.log(generator.next()); // {value: 1034, done: false}
+console.log(generator.next()); // {value: 1774, done: false}
+console.log(generator.next()); // {value: 2714, done: false}
+console.log(generator.next()); // {value: 3854, done: false}
+console.log(generator.next()); // {value: 5194, done: false}
+console.log(generator.next()); // {value: 6734, done: false}
+
+// ========================
+// assignment 7 "week-> 20"
+// ========================
+console.error("assignment 7 week-> 20");
+
+function* genNumbers() {
+  yield* [1, 2, 2, 2, 3, 4, 5];
+}
+function* genLetters() {
+  yield* ["A", "B", "B", "B", "C", "D"];
+}
+
+// Write Your Generator Function Here
+function* genAll() {
+  let seen = new Set();
+  // yield* new Set(genNumbers());
+  // yield* new Set(genLetters());
+  for (let value of genNumbers()) {
+    if (!seen.has(value)) {
+      seen.add(value);
+      yield value;
+    }
+  }
+  for (let value of genLetters()) {
+    if (!seen.has(value)) {
+      seen.add(value);
+      yield value;
+    }
+  }
+}
+
+let generator1 = genAll();
+
+console.log(generator1.next()); // {value: 1, done: false}
+console.log(generator1.next()); // {value: 2, done: false}
+console.log(generator1.next()); // {value: 3, done: false}
+console.log(generator1.next()); // {value: 4, done: false}
+console.log(generator1.next()); // {value: 5, done: false}
+console.log(generator1.next()); // {value: "A", done: false}
+console.log(generator1.next()); // {value: "B", done: false}
+console.log(generator1.next()); // {value: "C", done: false}
+console.log(generator1.next()); // {value: "D", done: false}
+
+// ========================
+// assignment 8 "week-> 20"
+// ========================
+console.error("assignment 8 week-> 20");
+console.log("I'will do it later, plz dont forget it");
