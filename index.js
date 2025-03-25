@@ -3292,9 +3292,4 @@ console.log(generator1.next()); // {value: "D", done: false}
 console.error("assignment 8 week-> 20");
 console.log("I'will do it later, plz dont forget it");
 
-function (sum){
-  function sum(a,b){
-return a+b;
-  }
- return sum()
-}
+console.log("simo");
